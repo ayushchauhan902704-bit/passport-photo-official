@@ -1,186 +1,269 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passport Photo Official - Exact Size</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Create passport, visa, ID card and document size photos online. Choose a country, upload your photo and preview it instantly.">
+<title>All Document Size Photo - Passport, Visa & ID Photo Maker</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#f6f7fb;color:#111}
-.head{max-width:1200px;margin:0 auto;padding:20px;text-align:center}
-.head h1{font-size:28px;font-weight:900}
-.head p{font-size:13px;color:#666;margin-top:6px}
-.searchWrap{max-width:700px;margin:18px auto;background:#fff;border:2px solid #2563eb;border-radius:14px;display:flex;align-items:center;padding:0 16px}
-.searchWrap input{flex:1;border:0;outline:none;padding:16px 10px;font-size:16px}
-.tabs{max-width:1200px;margin:10px auto;display:flex;gap:8px;overflow:auto;padding:0 15px}
-.tab{white-space:nowrap;background:#fff;border:1.5px solid #e5e7eb;padding:10px 16px;border-radius:99px;font-weight:700;font-size:13px;cursor:pointer}
-.tab.active{background:#111;color:#fff}
-.grid{max-width:1200px;margin:16px auto;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 15px}
-@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:#fff;border:1.5px solid #e5e7eb;border-radius:18px;padding:16px;cursor:pointer}
-.card h3{font-size:14px}
-.card p{font-size:11px;color:#777;margin-top:4px}
-.size{margin-top:10px;background:#eef2ff;color:#1d4ed8;display:inline-block;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:800}
-.page{max-width:900px;margin:0 auto;background:#fff;padding:18px;border-radius:18px;display:none}
-.page.active{display:block}
-.back{color:#2563eb;font-weight:700;cursor:pointer}
-.up{margin-top:16px;border:2.5px dashed #2563eb;background:#f8faff;padding:36px;border-radius:14px;text-align:center;cursor:pointer}
-.prev{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
-@media(max-width:600px){.prev{grid-template-columns:1fr}}
-.prev img{width:100%;border-radius:12px;border:1px solid #ddd;background:#fff}
-.btn{display:block;width:100%;margin-top:10px;background:#2563eb;color:#fff;text-align:center;padding:16px;border-radius:12px;font-weight:900;border:0;font-size:16px;cursor:pointer}
-.btn2{background:#111}
-.info{margin-top:10px;background:#e3f2fd;color:#0d47a1;padding:10px;border-radius:8px;font-size:12px;text-align:center;font-weight:700}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f7fb;color:#182230;line-height:1.6}
+header{background:#fff;border-bottom:1px solid #e5e7eb;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:21px;font-weight:800;color:#155eef}
+nav a{margin-left:15px;text-decoration:none;color:#344054;font-size:14px}
+.hero{text-align:center;padding:55px 18px 35px;background:linear-gradient(135deg,#eaf2ff,#fff)}
+.tag{background:#dbeafe;color:#174ea6;padding:6px 13px;border-radius:25px;font-size:12px;font-weight:bold}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.2;margin:20px auto 12px;max-width:760px}
+.hero p{color:#667085;max-width:650px;margin:auto}
+main{max-width:1000px;margin:auto;padding:25px 16px 55px}
+.panel{background:#fff;border:1px solid #e4e7ec;border-radius:18px;padding:24px;box-shadow:0 8px 30px #1018280a}
+.panel h2{font-size:23px;margin-bottom:5px}
+.sub{color:#667085;font-size:14px;margin-bottom:22px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.field{min-width:0}
+label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
+select,input[type=file]{width:100%;padding:12px;border:1px solid #d0d5dd;border-radius:9px;background:#fff;font-size:15px;color:#344054}
+input[type=file]{padding:10px}
+.note{font-size:12px;color:#667085;margin-top:6px}
+button{border:0;border-radius:9px;padding:12px 18px;font-weight:700;font-size:15px;cursor:pointer}
+.primary{background:#155eef;color:white}
+.secondary{background:#eef4ff;color:#1849a9}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.preview{margin-top:25px;border-top:1px solid #eaecf0;padding-top:20px}
+.preview h3{margin-bottom:12px}
+.photo-stage{min-height:210px;background:#f2f4f7;border:1px dashed #cbd5e1;border-radius:12px;display:flex;justify-content:center;align-items:center;padding:20px}
+.photo-stage img{display:none;max-width:100%;max-height:340px;object-fit:contain}
+.empty{text-align:center;color:#667085;font-size:14px}
+#status{font-size:14px;margin-top:12px;color:#344054}
+.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:25px}
+.feature{background:#fff;border:1px solid #e4e7ec;border-radius:14px;padding:18px}
+.feature b{display:block;margin:7px 0}
+.feature p{font-size:13px;color:#667085}
+section.info{margin-top:38px}
+.info h2{font-size:25px;margin-bottom:12px}
+.info p{color:#667085;margin-bottom:12px}
+footer{padding:25px 15px;background:#fff;border-top:1px solid #e5e7eb;text-align:center;color:#667085;font-size:13px}
+footer a{color:#155eef;margin:0 8px}
+@media(max-width:650px){
+ header{padding:14px;align-items:flex-start;flex-direction:column}
+ nav a{margin:0 12px 0 0}
+ .hero{padding-top:40px}
+ .panel{padding:17px}
+ .fields{grid-template-columns:1fr}
+ .features{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<div class="head">
-<h1>Passport Photo Official</h1>
-<p>World's No.1 - Select Any Document → Upload → EXACT Size You Choose - 100% FREE</p>
-<div class="searchWrap"><span>🔍</span><input id="search" oninput="render()" placeholder="Search: Green Card, SSC, DL, Schengen..."></div>
-</div>
-<div class="tabs">
-<div class="tab active" onclick="setCat('all',this)">All - 60+ Docs</div>
-<div class="tab" onclick="setCat('passport',this)">All Passports</div>
-<div class="tab" onclick="setCat('visa',this)">All Visas</div>
-<div class="tab" onclick="setCat('id',this)">ID Cards</div>
-<div class="tab" onclick="setCat('job',this)">Govt Jobs</div>
-</div>
-<div id="grid" class="grid"></div>
-<div id="tool" class="page">
-<span class="back" onclick="goHome()">← Back</span>
-<h2 id="selTitle" style="margin-top:10px"></h2>
-<p id="selInfo" style="font-size:12px;color:#666;margin-top:4px"></p>
-<input type="file" id="fileIn" hidden accept="image/*">
-<div class="up" onclick="document.getElementById('fileIn').click()"><b>📸 Click to Upload Photo</b><br><small>Jo Option Chunoge Usi EXACT Size Me Banega - White BG</small></div>
-<div id="prev" class="prev" style="display:none">
-<div><small><b>Original Photo</b></small><img id="origImg"><div class="info" id="origInfo"></div></div>
-<div><small id="finalLabel"><b>Final - Exact Size</b></small><img id="finalImg"><canvas id="cvs" style="display:none"></canvas><div class="info" id="finalInfo"></div><button class="btn" onclick="downloadHD()">⬇️ Download HD - Exact Size</button><button class="btn btn2" onclick="downloadA4()">Download A4 Sheet (8 Photos)</button></div>
-</div>
-</div>
+<header>
+  <div class="logo">📸 All Document Size Photo</div>
+  <nav>
+    <a href="#maker">Photo Maker</a>
+    <a href="#documents">Documents</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="tag">FREE ONLINE PHOTO MAKER</span>
+  <h1>Passport, Visa & Document Photos Made Simple</h1>
+  <p>Choose your country and document type, upload your photo, and preview it in a clean photo workspace.</p>
+</section>
+
+<main>
+<section class="panel" id="maker">
+  <h2>Create Your Document Photo</h2>
+  <p class="sub">Choose your requirements and upload a clear photo.</p>
+
+  <div class="fields">
+    <div class="field">
+      <label for="country">Select country</label>
+      <select id="country">
+        <option value="IN">India</option>
+        <option value="US">United States</option>
+        <option value="GB">United Kingdom</option>
+        <option value="CA">Canada</option>
+        <option value="AU">Australia</option>
+        <option value="CN">China</option>
+        <option value="JP">Japan</option>
+        <option value="PK">Pakistan</option>
+        <option value="BD">Bangladesh</option>
+        <option value="NP">Nepal</option>
+        <option value="OTHER">Other country</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="document">Select document</label>
+      <select id="document">
+        <option value="passport">Passport photo</option>
+        <option value="visa">Visa photo</option>
+        <option value="id">ID card photo</option>
+        <option value="license">Driving licence photo</option>
+        <option value="general">General document photo</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="background">Background color</label>
+      <select id="background">
+        <option value="#ffffff">White</option>
+        <option value="#dbeafe">Light blue</option>
+        <option value="#e5e7eb">Light grey</option>
+      </select>
+      <p class="note">Select a color permitted by your document's official rules.</p>
+    </div>
+
+    <div class="field">
+      <label for="upload">Upload your photo</label>
+      <input type="file" id="upload" accept="image/jpeg,image/png,image/webp">
+      <p class="note">Use a clear, front-facing photograph.</p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="primary" id="previewBtn">Preview Photo</button>
+    <button class="secondary" id="resetBtn" type="button">Reset</button>
+  </div>
+
+  <div class="preview">
+    <h3>Photo Preview</h3>
+    <div class="photo-stage" id="stage">
+      <p class="empty" id="empty">Your photo preview will appear here.</p>
+      <img id="photo" alt="Uploaded photo preview">
+    </div>
+    <p id="status" aria-live="polite">No photo selected.</p>
+    <div class="actions">
+      <button class="primary" id="downloadBtn" disabled>Download Preview</button>
+    </div>
+    <p class="note">This initial version creates a visual preview, not a verified, document-compliant crop or background replacement. Official sizes and requirements must be checked before using a photo for an application.</p>
+  </div>
+</section>
+
+<section class="features" id="documents">
+  <div class="feature">
+    <div>🛂</div>
+    <b>Passport Photos</b>
+    <p>Prepare photos for passport applications.</p>
+  </div>
+  <div class="feature">
+    <div>✈️</div>
+    <b>Visa Photos</b>
+    <p>Choose a country and visa photo workflow.</p>
+  </div>
+  <div class="feature">
+    <div>🪪</div>
+    <b>ID & Licence Photos</b>
+    <p>Explore photo options for identity documents.</p>
+  </div>
+</section>
+
+<section class="info" id="about">
+  <h2>About All Document Size Photo</h2>
+  <p>Our goal is to make document photo preparation easier with a simple interface for choosing countries, document types, and photo backgrounds.</p>
+  <p>Photo dimensions, background rules, head positioning and other requirements can vary by document and issuing authority. Always verify the latest official instructions before submitting a photo.</p>
+</section>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> All Document Size Photo</p>
+  <p style="margin-top:8px">
+    <a href="#about">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
 
 <script>
-const DOCS=[
-{name:'USA Passport & Visa 2x2 Inch',desc:'USA 2x2 inch - 51x51mm',w:600,h:600,cat:'passport',id:'usa-2x2'},
-{name:'India Passport 35x45mm',desc:'India, UK, UAE, EU - 35x45mm',w:413,h:531,cat:'passport',id:'india-35x45'},
-{name:'Canada Passport 50x70mm',desc:'Canada - 50x70mm',w:500,h:700,cat:'passport',id:'canada-50x70'},
-{name:'Australia Passport 35x45',desc:'Australia 35x45',w:413,h:531,cat:'passport',id:'aus'},
-{name:'UK Passport 35x45mm',desc:'UK British 35x45',w:413,h:531,cat:'passport',id:'uk'},
-{name:'Dubai UAE 35x45',desc:'UAE Dubai 35x45',w:413,h:531,cat:'passport',id:'uae'},
-{name:'Singapore 35x35',desc:'Singapore 35x35 - 400x400',w:400,h:400,cat:'passport',id:'sg'},
-{name:'China 33x48mm',desc:'China 33x48',w:330,h:480,cat:'passport',id:'china'},
-{name:'Japan 45x45',desc:'Japan 45x45 - 450x450',w:450,h:450,cat:'passport',id:'jp'},
-{name:'Germany Schengen 35x45',desc:'Schengen Europe 35x45',w:413,h:531,cat:'passport',id:'de'},
-{name:'USA Visa 2x2',desc:'USA Visa B1/B2, F1, H1B - 600x600',w:600,h:600,cat:'visa',id:'usa-visa'},
-{name:'Canada Visitor Visa 50x70',desc:'Canada Visitor 50x70 - 500x700',w:500,h:700,cat:'visa',id:'ca-visa'},
-{name:'UK Visa 35x45',desc:'UK Visa 35x45 - 413x531',w:413,h:531,cat:'visa',id:'uk-visa'},
-{name:'Dubai Visit Visa 35x45',desc:'Dubai Visit 35x45 - 413x531',w:413,h:531,cat:'visa',id:'dubai-visa'},
-{name:'Schengen Visa 35x45',desc:'Schengen Visa 35x45 - 413x531',w:413,h:531,cat:'visa',id:'eu-visa'},
-{name:'Aadhar Card Photo',desc:'Aadhar - 400x500 - Exact',w:400,h:500,cat:'id',id:'aadhar'},
-{name:'PAN Card Photo 25x35',desc:'PAN Card - 300x400 - Exact',w:300,h:400,cat:'id',id:'pan'},
-{name:'Driving License DL Photo',desc:'DL Photo - 400x500 - Exact',w:400,h:500,cat:'id',id:'dl'},
-{name:'Voter ID Photo',desc:'Voter ID - 400x500 - Exact',w:400,h:500,cat:'id',id:'voter'},
-{name:'USA Green Card 2x2',desc:'Green Card - 600x600 - Exact',w:600,h:600,cat:'id',id:'green'},
-{name:'Canada PR Card 50x70',desc:'Canada PR - 500x700 - Exact',w:500,h:700,cat:'id',id:'pr'},
-{name:'UK BRP Card 35x45',desc:'UK BRP - 413x531 - Exact',w:413,h:531,cat:'id',id:'brp'},
-{name:'OCI Card Photo 51x51',desc:'OCI Card - 600x600 - Exact',w:600,h:600,cat:'id',id:'oci'},
-{name:'SSC CGL / CHSL Photo 35x45',desc:'SSC Exams - 413x531 - Exact',w:413,h:531,cat:'job',id:'ssc'},
-{name:'UPSC Photo 35x45',desc:'UPSC IAS IPS - 413x531 - Exact',w:413,h:531,cat:'job',id:'upsc'},
-{name:'Railway RRB Photo',desc:'RRB NTPC Group D - 413x531',w:413,h:531,cat:'job',id:'rrb'},
-{name:'Police Photo',desc:'Police - 413x531',w:413,h:531,cat:'job',id:'police'},
-{name:'Indian Army Photo',desc:'Army Agniveer - 413x531',w:413,h:531,cat:'job',id:'army'},
-{name:'NEET / JEE Photo',desc:'NEET JEE - 413x531',w:413,h:531,cat:'job',id:'neet'},
-];
-window.curCat='all'; window.curDoc=null; window.finalDataUrl='';
-window.setCat=(c,el)=>{window.curCat=c;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');render();}
-window.render=()=>{
-  const q=document.getElementById('search').value.toLowerCase();
-  const g=document.getElementById('grid'); g.innerHTML='';
-  DOCS.filter(d=>{
-    const okCat=window.curCat==='all'||d.cat===window.curCat;
-    const okQ=!q||d.name.toLowerCase().includes(q)||d.id.includes(q);
-    return okCat&&okQ;
-  }).forEach(d=>{
-    const div=document.createElement('div'); div.className='card';
-    div.innerHTML=`<h3>${d.name}</h3><p>${d.desc}</p><div class="size">Final: ${d.w}x${d.h} px EXACT</div>`;
-    div.onclick=()=>selectDoc(d); g.appendChild(div);
-  });
-}
-window.selectDoc=(d)=>{
-  window.curDoc=d;
-  document.getElementById('grid').style.display='none';
-  document.querySelector('.tabs').style.display='none';
-  document.querySelector('.head').style.display='none';
-  document.getElementById('tool').classList.add('active');
-  document.getElementById('selTitle').innerText=d.name;
-  document.getElementById('selInfo').innerText=`You Selected: ${d.name} | EXACT FINAL SIZE: ${d.w} x ${d.h} px | White BG | Govt Approved`;
-  window.scrollTo(0,0);
-}
-window.goHome=()=>{
-  document.getElementById('grid').style.display='grid';
-  document.querySelector('.tabs').style.display='flex';
-  document.querySelector('.head').style.display='block';
-  document.getElementById('tool').classList.remove('active');
-  document.getElementById('prev').style.display='none';
-}
-window.downloadHD=()=>{
-  if(!window.finalDataUrl){alert('Pehle photo upload karo');return;}
-  const a=document.createElement('a');
-  a.href=window.finalDataUrl;
-  a.download=`${window.curDoc.id}-${window.curDoc.w}x${window.curDoc.h}-EXACT.jpg`;
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-}
-window.downloadA4=()=>{
-  const cvs=document.createElement('canvas'); cvs.width=2480; cvs.height=3508;
-  const ctx=cvs.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,cvs.width,cvs.height);
-  const img=new Image(); img.onload=()=>{
-    for(let r=0;r<4;r++) for(let c=0;c<2;c++) ctx.drawImage(img,80+c*(window.curDoc.w+80),80+r*(window.curDoc.h+80),window.curDoc.w,window.curDoc.h);
-    const url=cvs.toDataURL('image/jpeg',0.92);
-    const a=document.createElement('a'); a.href=url; a.download=`${window.curDoc.id}-A4-${window.curDoc.w}x${window.curDoc.h}.jpg`;
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  }; img.src=window.finalDataUrl;
-}
-render();
+const upload = document.getElementById('upload');
+const photo = document.getElementById('photo');
+const empty = document.getElementById('empty');
+const stage = document.getElementById('stage');
+const statusText = document.getElementById('status');
+const downloadBtn = document.getElementById('downloadBtn');
+let currentUrl = null;
 
-// EXACT SIZE PHOTO BANANA - JO OPTION CHUNA USI SIZE ME
-document.getElementById('fileIn').addEventListener('change', (e)=>{
-  const file=e.target.files[0];
-  if(!file || !window.curDoc) return;
-  
-  const origURL=URL.createObjectURL(file);
-  document.getElementById('origImg').src=origURL;
-  
-  const img=new Image();
-  img.onload=()=>{
-    const cvs=document.getElementById('cvs');
-    // YAHI HAI EXACT SIZE - JO CHUNA USI ME BANEGA
-    cvs.width=window.curDoc.w;
-    cvs.height=window.curDoc.h;
-    
-    const ctx=cvs.getContext('2d');
-    ctx.fillStyle='#FFFFFF';
-    ctx.fillRect(0,0,cvs.width,cvs.height);
-    
-    // Face ko sahi se center me, 90% size me
-    const scale=Math.min(cvs.width/img.width, cvs.height/img.height)*0.90;
-    const nw=img.width*scale;
-    const nh=img.height*scale;
-    const x=(cvs.width-nw)/2;
-    const y=(cvs.height-nh)/2 - (nh*0.05); // thoda upar
-    
-    ctx.drawImage(img,x,y,nw,nh);
-    
-    window.finalDataUrl=cvs.toDataURL('image/jpeg',0.98);
-    document.getElementById('finalImg').src=window.finalDataUrl;
-    
-    document.getElementById('origInfo').innerText=`Original Size: ${img.width}x${img.height}`;
-    document.getElementById('finalInfo').innerText=`✅ Final EXACT Size: ${window.curDoc.w}x${window.curDoc.h} px - ${window.curDoc.name}`;
-    document.getElementById('finalLabel').innerHTML=`<b>Final - ${window.curDoc.w}x${window.curDoc.h} EXACT - White BG</b>`;
-    document.getElementById('prev').style.display='grid';
-    
-    console.log(`Photo created: ${window.curDoc.w}x${window.curDoc.h} EXACT`);
+document.getElementById('year').textContent = new Date().getFullYear();
+
+function updateBackground(){
+  stage.style.background = document.getElementById('background').value;
+}
+document.getElementById('background').addEventListener('change', updateBackground);
+updateBackground();
+
+document.getElementById('previewBtn').addEventListener('click', () => {
+  const file = upload.files[0];
+  if (!file) {
+    statusText.textContent = 'Please upload a photo first.';
+    return;
+  }
+  if (!file.type.startsWith('image/')) {
+    statusText.textContent = 'Please choose a valid image file.';
+    return;
+  }
+  if (file.size > 10 * 1024 * 1024) {
+    statusText.textContent = 'Please choose an image smaller than 10 MB.';
+    return;
+  }
+
+  if (currentUrl) URL.revokeObjectURL(currentUrl);
+  currentUrl = URL.createObjectURL(file);
+  photo.onload = () => {
+    photo.style.display = 'block';
+    empty.style.display = 'none';
+    statusText.textContent =
+      'Preview ready. Country: ' +
+      document.getElementById('country').selectedOptions[0].text +
+      '. Document: ' +
+      document.getElementById('document').selectedOptions[0].text +
+      '. This is not yet an official-size crop.';
+    downloadBtn.disabled = false;
   };
-  img.src=origURL;
+  photo.onerror = () => {
+    statusText.textContent = 'Could not open this image. Please try another.';
+  };
+  photo.src = currentUrl;
+  updateBackground();
+});
+
+downloadBtn.addEventListener('click', () => {
+  if (!photo.naturalWidth) return;
+  const canvas = document.createElement('canvas');
+  canvas.width = photo.naturalWidth;
+  canvas.height = photo.naturalHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = document.getElementById('background').value;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(photo, 0, 0);
+  canvas.toBlob(blob => {
+    if (!blob) {
+      statusText.textContent = 'Could not export the image.';
+      return;
+    }
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'document-photo-preview.jpg';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }, 'image/jpeg', 0.95);
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  upload.value = '';
+  photo.removeAttribute('src');
+  photo.style.display = 'none';
+  empty.style.display = 'block';
+  downloadBtn.disabled = true;
+  statusText.textContent = 'No photo selected.';
+  if (currentUrl) URL.revokeObjectURL(currentUrl);
+  currentUrl = null;
+  document.getElementById('country').value = 'IN';
+  document.getElementById('document').value = 'passport';
+  document.getElementById('background').value = '#ffffff';
+  updateBackground();
 });
 </script>
 </body>
