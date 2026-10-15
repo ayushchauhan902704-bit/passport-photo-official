@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passport Photo Official - Online AI</title>
+<title>Passport Photo Official - Exact Size</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
 body{background:#f6f7fb;color:#111}
 .head{max-width:1200px;margin:auto;padding:20px;text-align:center}
 .head h1{font-size:28px;font-weight:900}
-.head p{font-size:13px;color:#666;margin-top:6px}
 .searchWrap{max-width:700px;margin:18px auto;background:#fff;border:2px solid #2563eb;border-radius:14px;display:flex;align-items:center;padding:0 16px}
 .searchWrap input{flex:1;border:0;outline:none;padding:16px 10px;font-size:16px}
 .tabs{max-width:1200px;margin:10px auto;display:flex;gap:8px;overflow:auto;padding:0 15px}
@@ -19,28 +18,26 @@ body{background:#f6f7fb;color:#111}
 @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
 .card{background:#fff;border:1.5px solid #e5e7eb;border-radius:16px;padding:15px;cursor:pointer}
 .card h3{font-size:14px}
-.size{margin-top:10px;background:#eef2ff;color:#1d4ed8;display:inline-block;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:800}
+.size{margin-top:8px;background:#eef2ff;color:#1d4ed8;display:inline-block;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:800}
 .page{max-width:900px;margin:0 auto;background:#fff;padding:18px;border-radius:18px;display:none}
 .page.active{display:block}
 .back{color:#2563eb;font-weight:700;cursor:pointer}
-.up{margin-top:16px;border:2.5px dashed #2563eb;background:#f8faff;padding:20px;border-radius:14px;text-align:center}
-.load{margin-top:15px;background:#111;color:#fff;padding:14px;border-radius:10px;text-align:center;display:none;font-weight:800;line-height:1.5}
+.up{margin-top:16px;border:2.5px dashed #2563eb;background:#f8faff;padding:30px;border-radius:14px;text-align:center;cursor:pointer}
 .prev{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
 @media(max-width:600px){.prev{grid-template-columns:1fr}}
 .prev img{width:100%;border-radius:12px;border:1px solid #ddd;background:#fff}
 .btn{display:block;width:100%;margin-top:10px;background:#2563eb;color:#fff;text-align:center;padding:16px;border-radius:12px;font-weight:900;border:0;font-size:16px;cursor:pointer}
 .btn2{background:#111}
-.badge{margin-top:10px;background:#e3f2fd;color:#1565c0;padding:8px;border-radius:8px;font-size:12px;text-align:center;font-weight:700}
 </style>
 </head>
 <body>
 <div class="head">
 <h1>Passport Photo Official</h1>
-<p>ONLINE AI - Internet se White BG - Select Document → Upload → AI White BG</p>
+<p>ChatGPT Jaisa Fast - Exact Size Me - 1 Sec Me - No AI Fail</p>
 <div class="searchWrap"><span>🔍</span><input id="search" oninput="render()" placeholder="Search Aadhaar, USA, Visa..."></div>
 </div>
 <div class="tabs">
-<div class="tab active" onclick="setCat('all',this)">All - 60+ Docs</div>
+<div class="tab active" onclick="setCat('all',this)">All</div>
 <div class="tab" onclick="setCat('passport',this)">Passports</div>
 <div class="tab" onclick="setCat('visa',this)">Visas</div>
 <div class="tab" onclick="setCat('id',this)">ID Cards</div>
@@ -50,13 +47,16 @@ body{background:#f6f7fb;color:#111}
 <div id="tool" class="page">
 <span class="back" onclick="goHome()">← Back</span>
 <h2 id="selTitle" style="margin-top:10px"></h2>
-<p id="selInfo" style="font-size:12px;color:#666;margin-top:4px"></p>
-<input type="file" id="fileIn" accept="image/*" hidden>
-<div class="up" onclick="document.getElementById('fileIn').click()"><b>📸 Click to Upload - ONLINE AI</b><br><small>Internet se background remove hoga - Exact size me banega</small><div class="badge" id="onlineStatus">🌐 Online Mode - Internet Required - No Key Needed</div></div>
-<div id="load" class="load">⏳ Step 1: Exact size photo bana diya...<br>Step 2: Internet se AI background clean kar raha hu...</div>
-<div id="prev" class="prev" style="display:none">
-<div><small><b>Original</b></small><img id="origImg"></div>
-<div><small id="finalLabel"><b>Final - Exact Size</b></small><img id="finalImg"><canvas id="cvs" style="display:none"></canvas><button class="btn" onclick="downloadHD()">⬇️ Download HD</button><button class="btn btn2" onclick="downloadA4()">Download A4 Sheet</button><div class="badge" id="aiStatus">✅ Instant White BG Ready</div></div>
+<p id="selInfo"></p>
+<input type="file" id="fileIn" accept="image/*">
+<div id="prev" style="display:none;margin-top:15px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div><b>Original</b><img id="origImg" style="width:100%;border-radius:12px;border:1px solid #ddd;margin-top:6px"></div>
+<div><b id="finalLabel">Final</b><img id="finalImg" style="width:100%;border-radius:12px;border:1px solid #ddd;margin-top:6px;background:#fff"><canvas id="cvs" style="display:none"></canvas>
+<button class="btn" onclick="downloadHD()">⬇️ Download - Exact Size</button>
+<button class="btn btn2" onclick="downloadA4()">Download A4 Sheet</button>
+</div>
+</div>
 </div>
 </div>
 
@@ -64,104 +64,58 @@ body{background:#f6f7fb;color:#111}
 const DOCS=[
 {name:'USA Passport 2x2 Inch',desc:'USA 600x600',w:600,h:600,cat:'passport',id:'usa'},
 {name:'India Passport 35x45mm',desc:'India 413x531',w:413,h:531,cat:'passport',id:'india'},
-{name:'Canada Passport 50x70mm',desc:'Canada 500x700',w:500,h:700,cat:'passport',id:'canada'},
-{name:'Aadhar Card Photo',desc:'Aadhar 400x500 EXACT',w:400,h:500,cat:'id',id:'aadhar'},
-{name:'PAN Card Photo',desc:'PAN 300x400 EXACT',w:300,h:400,cat:'id',id:'pan'},
-{name:'Driving License',desc:'DL 400x500',w:400,h:500,cat:'id',id:'dl'},
-{name:'Voter ID',desc:'Voter 400x500',w:400,h:500,cat:'id',id:'voter'},
-{name:'USA Visa 2x2',desc:'USA Visa 600x600',w:600,h:600,cat:'visa',id:'usa-visa'},
+{name:'Canada 50x70mm',desc:'Canada 500x700',w:500,h:700,cat:'passport',id:'canada'},
+{name:'Aadhar 400x500',desc:'Aadhar EXACT 400x500',w:400,h:500,cat:'id',id:'aadhar'},
+{name:'PAN 300x400',desc:'PAN EXACT 300x400',w:300,h:400,cat:'id',id:'pan'},
+{name:'DL 400x500',desc:'DL 400x500',w:400,h:500,cat:'id',id:'dl'},
+{name:'USA Visa 2x2',desc:'Visa 600x600',w:600,h:600,cat:'visa',id:'usa-visa'},
 {name:'UK Visa 35x45',desc:'UK 413x531',w:413,h:531,cat:'visa',id:'uk-visa'},
-{name:'Schengen Visa 35x45',desc:'Schengen 413x531',w:413,h:531,cat:'visa',id:'schengen-visa'},
-{name:'SSC Exam Photo',desc:'SSC 413x531',w:413,h:531,cat:'job',id:'ssc'},
-{name:'UPSC Photo',desc:'UPSC 413x531',w:413,h:531,cat:'job',id:'upsc'},
+{name:'Schengen 35x45',desc:'Schengen 413x531',w:413,h:531,cat:'visa',id:'schengen'},
+{name:'SSC Photo',desc:'SSC 413x531',w:413,h:531,cat:'job',id:'ssc'},
 ];
-window.curCat='all'; window.curDoc=null; window.finalDataUrl=''; window.origFile=null; window.jobId=0;
-window.setCat=(c,el)=>{window.curCat=c;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');render();}
-window.render=()=>{
-  const q=document.getElementById('search').value.toLowerCase();
-  const g=document.getElementById('grid'); g.innerHTML='';
-  DOCS.filter(d=>{const okCat=window.curCat==='all'||d.cat===window.curCat; const okQ=!q||d.name.toLowerCase().includes(q); return okCat&&okQ;}).forEach(d=>{
+let curCat='all', curDoc=null, finalDataUrl='';
+const $=id=>document.getElementById(id);
+setCat=(c,el)=>{curCat=c;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');render();}
+render=()=>{
+  const q=$('search').value.toLowerCase();
+  const g=$('grid'); g.innerHTML='';
+  DOCS.filter(d=>(curCat==='all'||d.cat===curCat) && d.name.toLowerCase().includes(q)).forEach(d=>{
     const div=document.createElement('div'); div.className='card';
-    div.innerHTML=`<h3>${d.name}</h3><p>${d.desc}</p><div class="size">EXACT: ${d.w}x${d.h} px</div>`;
-    div.onclick=()=>selectDoc(d); g.appendChild(div);
+    div.innerHTML=`<h3>${d.name}</h3><p>${d.desc}</p><div class="size">${d.w}x${d.h} EXACT</div>`;
+    div.onclick=()=>{curDoc=d; $('grid').style.display='none'; document.querySelector('.tabs').style.display='none'; document.querySelector('.head').style.display='none'; $('tool').classList.add('active'); $('selTitle').innerText=d.name; $('selInfo').innerText='FINAL SIZE: '+d.w+'x'+d.h+' px EXACT - Jo chunoge usi me banega';};
+    g.appendChild(div);
   });
 }
-window.selectDoc=(d)=>{
-  window.curDoc=d; document.getElementById('grid').style.display='none'; document.querySelector('.tabs').style.display='none'; document.querySelector('.head').style.display='none';
-  document.getElementById('tool').classList.add('active'); document.getElementById('selTitle').innerText=d.name; document.getElementById('selInfo').innerText=`Selected: ${d.name} | FINAL EXACT ${d.w} x ${d.h} px | ONLINE AI White BG`;
-}
-window.goHome=()=>{
-  document.getElementById('grid').style.display='grid'; document.querySelector('.tabs').style.display='flex'; document.querySelector('.head').style.display='block';
-  document.getElementById('tool').classList.remove('active'); document.getElementById('prev').style.display='none'; document.getElementById('load').style.display='none';
-}
-window.downloadHD=()=>{
-  if(!window.finalDataUrl){alert('Pehle photo select karo');return;}
-  const a=document.createElement('a'); a.href=window.finalDataUrl; a.download=`${window.curDoc.id}-${window.curDoc.w}x${window.curDoc.h}-ONLINE-AI.jpg`; document.body.appendChild(a); a.click(); a.remove();
-}
-window.downloadA4=()=>{
-  const cvs=document.createElement('canvas'); cvs.width=2480; cvs.height=3508; const ctx=cvs.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,cvs.width,cvs.height);
-  const img=new Image(); img.onload=()=>{for(let r=0;r<4;r++) for(let c=0;c<2;c++) ctx.drawImage(img,80+c*(window.curDoc.w+80),80+r*(window.curDoc.h+80),window.curDoc.w,window.curDoc.h); const url=cvs.toDataURL('image/jpeg',0.92); const a=document.createElement('a'); a.href=url; a.download=`A4-Sheet.jpg`; document.body.appendChild(a); a.click(); a.remove();}; img.src=window.finalDataUrl;
-}
-render();
-window.makeFinal = (img, job)=>{
-  if(job!==window.jobId||!window.curDoc) return;
-  const cvs=document.getElementById('cvs'); cvs.width=window.curDoc.w; cvs.height=window.curDoc.h;
-  const ctx=cvs.getContext('2d'); ctx.fillStyle='#FFFFFF'; ctx.fillRect(0,0,cvs.width,cvs.height);
-  const scale=Math.min(cvs.width/img.width, cvs.height/img.height)*0.90;
-  const nw=img.width*scale; const nh=img.height*scale;
-  const x=(cvs.width-nw)/2; const y=(cvs.height-nh)/2 - nh*0.05;
-  ctx.drawImage(img,x,y,nw,nh);
-  window.finalDataUrl=cvs.toDataURL('image/jpeg',0.96);
-  document.getElementById('finalImg').src=window.finalDataUrl;
-  document.getElementById('finalLabel').innerText=`Final EXACT ${window.curDoc.w}x${window.curDoc.h} - Online AI White BG`;
-  document.getElementById('prev').style.display='grid';
-};
+goHome=()=>{ $('grid').style.display='grid'; document.querySelector('.tabs').style.display='flex'; document.querySelector('.head').style.display='block'; $('tool').classList.remove('active'); $('prev').style.display='none';}
+downloadHD=()=>{ if(!finalDataUrl) return; const a=document.createElement('a'); a.href=finalDataUrl; a.download=curDoc.id+'-'+curDoc.w+'x'+curDoc.h+'.jpg'; a.click();}
+downloadA4=()=>{ const c=document.createElement('canvas'); c.width=2480; c.height=3508; const ctx=c.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,c.width,c.height); const im=new Image(); im.onload=()=>{for(let r=0;r<4;r++) for(let c2=0;c2<2;c2++) ctx.drawImage(im,80+c2*(curDoc.w+80),80+r*(curDoc.h+80),curDoc.w,curDoc.h); const a=document.createElement('a'); a.href=c.toDataURL('image/jpeg',0.92); a.download='A4.jpg'; a.click();}; im.src=finalDataUrl;}
 
-// INSTANT - Bina internet ke bhi result (taaki kabhi fail na ho)
-document.getElementById('fileIn').addEventListener('change', function(e){
-  const file=e.target.files[0]; if(!file||!window.curDoc) return;
-  window.origFile=file; window.jobId++;
-  const job=window.jobId;
-  const origURL=URL.createObjectURL(file);
-  document.getElementById('origImg').src=origURL;
-  document.getElementById('load').style.display='block';
-  document.getElementById('load').innerHTML='⏳ Instant photo ban gaya '+window.curDoc.w+'x'+window.curDoc.h+' me...<br>🌐 Ab internet se AI background clean kar raha hu...';
+// YE HAI CHATGPT JAISE FAST WALA CODE - 100% KAAM KAREGA
+$('fileIn').addEventListener('change', e=>{
+  const file=e.target.files[0];
+  if(!file || !curDoc){ alert('Pehle document select karo'); return; }
+  const url=URL.createObjectURL(file);
+  $('origImg').src=url;
   const img=new Image();
-  img.onload=()=>{ window.makeFinal(img, job); document.getElementById('aiStatus').innerText='✅ Instant Ready - AI improving via internet...'; };
-  img.src=origURL;
-  // Trigger online AI
-  if(window.tryOnlineAI) window.tryOnlineAI(file, job);
+  img.onload=()=>{
+    const cvs=$('cvs');
+    cvs.width=curDoc.w; // EXACT WIDTH - JO CHUNA USI ME
+    cvs.height=curDoc.h; // EXACT HEIGHT - JO CHUNA USI ME
+    const ctx=cvs.getContext('2d');
+    ctx.fillStyle='#fff';
+    ctx.fillRect(0,0,cvs.width,cvs.height);
+    const scale=Math.min(cvs.width/img.width, cvs.height/img.height)*0.92;
+    const w=img.width*scale, h=img.height*scale;
+    const x=(cvs.width-w)/2, y=(cvs.height-h)/2 - h*0.04;
+    ctx.drawImage(img,x,y,w,h);
+    finalDataUrl=cvs.toDataURL('image/jpeg',0.98);
+    $('finalImg').src=finalDataUrl;
+    $('finalLabel').innerText='Final EXACT '+curDoc.w+'x'+curDoc.h;
+    $('prev').style.display='block';
+  };
+  img.src=url;
 });
-</script>
-
-<script type="module">
-// YE HAI ONLINE AI WALA PART - Internet se background hatayega
-import { removeBackground } from 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/index.mjs';
-
-window.tryOnlineAI = async (file, job)=>{
-  try{
-    document.getElementById('onlineStatus').innerText='🌐 Online AI Loading... Internet se model download ho raha hai (10-20 sec first time)';
-    // iPhone ke liye photo choti karke AI chalao - internet se hi hoga
-    const blob = await removeBackground(file);
-    if(job!==window.jobId) return;
-    const url = URL.createObjectURL(blob);
-    const aiImg = new Image();
-    aiImg.onload = ()=>{
-      if(job!==window.jobId) return;
-      window.makeFinal(aiImg, job);
-      document.getElementById('load').style.display='none';
-      document.getElementById('aiStatus').innerText='✅ ONLINE AI Done - Pure White BG - Exact '+window.curDoc.w+'x'+window.curDoc.h;
-      document.getElementById('onlineStatus').innerText='✅ Online AI Success - Background internet se remove hua';
-      URL.revokeObjectURL(url);
-    };
-    aiImg.src = url;
-  }catch(err){
-    console.log('Online AI failed, keeping instant', err);
-    document.getElementById('load').style.display='none';
-    document.getElementById('aiStatus').innerText='⚠️ AI slow - Instant White BG ready hai - Download kar lo';
-    document.getElementById('onlineStatus').innerText='⚠️ Internet slow - Instant result ready hai';
-  }
-};
+render();
 </script>
 </body>
 </html>
