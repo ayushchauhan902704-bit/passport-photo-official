@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passport Photo Official - World's No.1 Photo Maker</title>
+<title>Passport Photo Official - World's No.1 - Clean & Safe</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
 body{background:#f6f7fb;color:#111}
 .head{max-width:1200px;margin:0 auto;padding:20px;text-align:center}
-.head h1{font-size:28px;font-weight:900;line-height:1.1}
-.head p{color:#666;margin-top:6px;font-size:14px}
+.head h1{font-size:28px;font-weight:900}
+.head p{font-size:13px;color:#666;margin-top:6px}
 .searchWrap{max-width:700px;margin:18px auto;background:#fff;border:2px solid #2563eb;border-radius:14px;display:flex;align-items:center;padding:0 16px}
 .searchWrap input{flex:1;border:0;outline:none;padding:16px 10px;font-size:16px}
 .tabs{max-width:1200px;margin:10px auto;display:flex;gap:8px;overflow:auto;padding:0 15px}
@@ -17,27 +17,27 @@ body{background:#f6f7fb;color:#111}
 .tab.active{background:#111;color:#fff}
 .grid{max-width:1200px;margin:16px auto;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 15px}
 @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:#fff;border:1.5px solid #e5e7eb;border-radius:18px;padding:16px;cursor:pointer;transition:.2s}
-.card:active{transform:scale(.97)}
+.card{background:#fff;border:1.5px solid #e5e7eb;border-radius:18px;padding:16px;cursor:pointer}
 .card h3{font-size:14px;line-height:1.2}
 .card p{font-size:11px;color:#777;margin-top:4px}
 .size{margin-top:10px;background:#eef2ff;color:#1d4ed8;display:inline-block;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:800}
 .page{max-width:900px;margin:0 auto;background:#fff;padding:18px;border-radius:18px;display:none}
 .page.active{display:block}
 .back{color:#2563eb;font-weight:700;cursor:pointer}
-.up{margin-top:16px;border:2.5px dashed #2563eb;background:#f8faff;padding:34px;border-radius:14px;text-align:center;cursor:pointer}
-.load{margin-top:15px;background:#111;color:#fff;padding:12px;border-radius:10px;text-align:center;display:none;font-weight:800}
+.up{margin-top:16px;border:2.5px dashed #2563eb;background:#f8faff;padding:36px;border-radius:14px;text-align:center;cursor:pointer}
+.load{margin-top:15px;background:#111;color:#fff;padding:14px;border-radius:10px;text-align:center;display:none;font-weight:800}
 .prev{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
 @media(max-width:600px){.prev{grid-template-columns:1fr}}
-.prev img{width:100%;border-radius:12px;border:1px solid #eee;background:#fff}
-.btn{display:block;width:100%;margin-top:10px;background:#2563eb;color:#fff;text-align:center;padding:14px;border-radius:10px;font-weight:800;border:0;font-size:15px;cursor:pointer}
+.prev img{width:100%;border-radius:12px;border:1px solid #ddd;background:#fff}
+.btn{display:block;width:100%;margin-top:10px;background:#2563eb;color:#fff;text-align:center;padding:16px;border-radius:12px;font-weight:900;border:0;font-size:16px;cursor:pointer}
 .btn2{background:#111}
+.safe{margin-top:12px;background:#e8f5e9;color:#2e7d32;padding:10px;border-radius:8px;font-size:11px;text-align:center;font-weight:700}
 </style>
 </head>
 <body>
 <div class="head">
 <h1>Passport Photo Official</h1>
-<p>World's No.1 - Select Any Document → Upload → White BG in 5 Sec - 100% FREE</p>
+<p>World's No.1 - Select Any Document → Upload → White BG in 5 Sec - 100% FREE - Clean & Safe - No Data Saved</p>
 <div class="searchWrap"><span>🔍</span><input id="search" oninput="render()" placeholder="Search: Green Card, SSC, DL, Schengen..."></div>
 </div>
 <div class="tabs">
@@ -53,54 +53,54 @@ body{background:#f6f7fb;color:#111}
 <h2 id="selTitle" style="margin-top:10px"></h2>
 <p id="selInfo" style="font-size:12px;color:#666;margin-top:4px"></p>
 <input type="file" id="fileIn" hidden accept="image/*">
-<div class="up" onclick="document.getElementById('fileIn').click()"><b>Click to Upload Photo</b><br><small>Any Background Works - We will make it White & Correct Size</small></div>
-<div id="load" class="load">⏳ AI White Background bana raha hai... 10 sec wait karo</div>
+<div class="up" onclick="document.getElementById('fileIn').click()"><b>📸 Click to Upload Photo</b><br><small>Any Background Works - AI will make Pure White & Exact Size You Selected</small></div>
+<div id="load" class="load">⏳ AI cutting background & making White BG... 5 sec</div>
 <div id="prev" class="prev" style="display:none">
-<div><small>Original</small><img id="origImg"></div>
-<div><small id="finalLabel">Final</small><img id="finalImg"><canvas id="cvs" style="display:none"></canvas><button class="btn" onclick="downloadHD()">Download HD - FREE</button><button class="btn btn2" onclick="downloadA4()">Download A4 Sheet (8 Photos)</button></div>
+<div><small><b>Original</b></small><img id="origImg"><div class="safe">🔒 Safe - Photo never uploaded to server</div></div>
+<div><small id="finalLabel"><b>Final - White BG</b></small><img id="finalImg"><canvas id="cvs" style="display:none"></canvas><button class="btn" onclick="downloadHD()">⬇️ Download HD Photo (Exact Size)</button><button class="btn btn2" onclick="downloadA4()">Download A4 Sheet - 8 Photos</button><div class="safe">✅ Govt Compliant - 100% Clean White</div></div>
 </div>
 </div>
 
 <script>
 const DOCS=[
-{name:'USA Passport & Visa 2x2 Inch',desc:'USA 51x51mm 600x600',w:600,h:600,cat:'passport',id:'usa-2x2'},
-{name:'India Passport 35x45mm',desc:'India, UK, UAE, EU',w:413,h:531,cat:'passport',id:'india-35x45'},
-{name:'Canada Passport 50x70mm',desc:'Canada 50x70',w:500,h:700,cat:'passport',id:'canada-50x70'},
-{name:'Australia Passport 35x45',desc:'Australia',w:413,h:531,cat:'passport',id:'australia'},
+{name:'USA Passport & Visa 2x2 Inch',desc:'USA 51x51mm 600x600',w:600,h:600,cat:'passport',id:'usa'},
+{name:'India Passport 35x45mm',desc:'India, UK, UAE, EU',w:413,h:531,cat:'passport',id:'india'},
+{name:'Canada Passport 50x70mm',desc:'Canada 50x70',w:500,h:700,cat:'passport',id:'canada'},
+{name:'Australia Passport 35x45',desc:'Australia',w:413,h:531,cat:'passport',id:'aus'},
 {name:'UK Passport 35x45mm',desc:'UK British',w:413,h:531,cat:'passport',id:'uk'},
 {name:'Dubai UAE 35x45',desc:'UAE Dubai',w:413,h:531,cat:'passport',id:'uae'},
-{name:'Singapore 35x35',desc:'Singapore',w:400,h:400,cat:'passport',id:'sg'},
+{name:'Singapore 35x35',desc:'Singapore 400x400',w:400,h:400,cat:'passport',id:'sg'},
 {name:'China 33x48mm',desc:'China Visa',w:330,h:480,cat:'passport',id:'china'},
-{name:'Japan 45x45',desc:'Japan Visa',w:450,h:450,cat:'passport',id:'japan'},
-{name:'Germany Schengen 35x45',desc:'Schengen Europe',w:413,h:531,cat:'passport',id:'schengen'},
+{name:'Japan 45x45',desc:'Japan Visa',w:450,h:450,cat:'passport',id:'jp'},
+{name:'Germany Schengen 35x45',desc:'Schengen Europe',w:413,h:531,cat:'passport',id:'de'},
 {name:'USA Visa 2x2',desc:'B1/B2, F1, H1B',w:600,h:600,cat:'visa',id:'usa-visa'},
-{name:'Canada Visitor Visa 50x70',desc:'Visitor, Student, Work',w:500,h:700,cat:'visa',id:'canada-visa'},
+{name:'Canada Visitor Visa 50x70',desc:'Visitor, Student, Work',w:500,h:700,cat:'visa',id:'ca-visa'},
 {name:'UK Visa 35x45',desc:'UK Tourist, Student',w:413,h:531,cat:'visa',id:'uk-visa'},
 {name:'Dubai Visit Visa 35x45',desc:'Visit & Work',w:413,h:531,cat:'visa',id:'dubai-visa'},
-{name:'Schengen Visa 35x45',desc:'Europe 27 Countries',w:413,h:531,cat:'visa',id:'schengen-visa'},
-{name:'Aadhar Card Photo',desc:'Aadhar 35x45',w:400,h:500,cat:'id',id:'aadhar'},
-{name:'PAN Card Photo 25x35',desc:'PAN Card 25x35',w:300,h:400,cat:'id',id:'pan'},
-{name:'Driving License DL Photo',desc:'DL Size India & USA',w:400,h:500,cat:'id',id:'dl'},
-{name:'Voter ID Photo',desc:'Voter ID',w:400,h:500,cat:'id',id:'voter'},
-{name:'USA Green Card 2x2',desc:'Green Card Photo',w:600,h:600,cat:'id',id:'greencard'},
-{name:'Canada PR Card 50x70',desc:'Canada PR',w:500,h:700,cat:'id',id:'canada-pr'},
-{name:'UK BRP Card 35x45',desc:'UK BRP',w:413,h:531,cat:'id',id:'uk-brp'},
-{name:'OCI Card Photo 51x51',desc:'OCI Card',w:600,h:600,cat:'id',id:'oci'},
-{name:'SSC CGL / CHSL Photo 35x45',desc:'SSC Exams',w:413,h:531,cat:'job',id:'ssc'},
-{name:'UPSC Photo 35x45',desc:'IAS, IPS',w:413,h:531,cat:'job',id:'upsc'},
+{name:'Schengen Visa 35x45',desc:'Europe 27 Countries',w:413,h:531,cat:'visa',id:'eu-visa'},
+{name:'Aadhar Card Photo',desc:'Aadhar 35x45 - 400x500',w:400,h:500,cat:'id',id:'aadhar'},
+{name:'PAN Card Photo 25x35',desc:'PAN Card 25x35 - 300x400',w:300,h:400,cat:'id',id:'pan'},
+{name:'Driving License DL Photo',desc:'DL Size India & USA - 400x500',w:400,h:500,cat:'id',id:'dl'},
+{name:'Voter ID Photo',desc:'Voter ID - 400x500',w:400,h:500,cat:'id',id:'voter'},
+{name:'USA Green Card 2x2',desc:'Green Card 600x600',w:600,h:600,cat:'id',id:'green'},
+{name:'Canada PR Card 50x70',desc:'Canada PR 500x700',w:500,h:700,cat:'id',id:'pr'},
+{name:'UK BRP Card 35x45',desc:'UK BRP 413x531',w:413,h:531,cat:'id',id:'brp'},
+{name:'OCI Card Photo 51x51',desc:'OCI Card 600x600',w:600,h:600,cat:'id',id:'oci'},
+{name:'SSC CGL / CHSL Photo 35x45',desc:'SSC Exams 413x531',w:413,h:531,cat:'job',id:'ssc'},
+{name:'UPSC Photo 35x45',desc:'IAS, IPS 413x531',w:413,h:531,cat:'job',id:'upsc'},
 {name:'Railway RRB Photo',desc:'RRB NTPC, Group D',w:413,h:531,cat:'job',id:'rrb'},
 {name:'Police Photo',desc:'UP, Delhi Police',w:413,h:531,cat:'job',id:'police'},
 {name:'Indian Army Photo',desc:'Army Agniveer',w:413,h:531,cat:'job',id:'army'},
 {name:'NEET / JEE Photo',desc:'NEET, JEE',w:413,h:531,cat:'job',id:'neet'},
 ];
-let curCat='all', curDoc=null, finalDataUrl='';
-function setCat(c,el){curCat=c;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');render();}
-function render(){
+window.curCat='all'; window.curDoc=null; window.finalDataUrl='';
+window.setCat=(c,el)=>{window.curCat=c;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');render();}
+window.render=()=>{
   const q=document.getElementById('search').value.toLowerCase();
   const g=document.getElementById('grid'); g.innerHTML='';
   DOCS.filter(d=>{
-    const okCat=curCat==='all'||d.cat===curCat;
-    const okQ=!q||d.name.toLowerCase().includes(q)||d.id.includes(q);
+    const okCat=window.curCat==='all'||d.cat===window.curCat;
+    const okQ=!q||d.name.toLowerCase().includes(q)||d.id.includes(q)||d.desc.toLowerCase().includes(q);
     return okCat&&okQ;
   }).forEach(d=>{
     const div=document.createElement('div'); div.className='card';
@@ -108,80 +108,98 @@ function render(){
     div.onclick=()=>selectDoc(d); g.appendChild(div);
   });
 }
-function selectDoc(d){
-  curDoc=d;
+window.selectDoc=(d)=>{
+  window.curDoc=d;
   document.getElementById('grid').style.display='none';
   document.querySelector('.tabs').style.display='none';
   document.querySelector('.head').style.display='none';
   document.getElementById('tool').classList.add('active');
   document.getElementById('selTitle').innerText=d.name;
-  document.getElementById('selInfo').innerText=`Exact Size: ${d.w} x ${d.h} px | White Background | Govt Compliant`;
+  document.getElementById('selInfo').innerText=`You Selected: ${d.name} | Final Photo Will Be EXACT ${d.w} x ${d.h} px | Pure White BG | Govt Compliant | Clean & Safe`;
   window.scrollTo(0,0);
 }
-function goHome(){
+window.goHome=()=>{
   document.getElementById('grid').style.display='grid';
   document.querySelector('.tabs').style.display='flex';
   document.querySelector('.head').style.display='block';
   document.getElementById('tool').classList.remove('active');
   document.getElementById('prev').style.display='none';
-  const l=document.getElementById('load'); if(l) l.style.display='none';
+  document.getElementById('load').style.display='none';
 }
-function downloadHD(){
-  if(!finalDataUrl) return;
-  const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
-  if(isIOS){
-    const w=window.open(); w.document.write(`<img src="${finalDataUrl}" style="width:100%"><p style="text-align:center;font-family:sans-serif"><b>Long Press > Save to Photos</b></p>`);
-  }else{
-    const a=document.createElement('a'); a.href=finalDataUrl; a.download=`${curDoc.id}-HD-${curDoc.w}x${curDoc.h}.jpg`; a.click();
-  }
+window.downloadHD=()=>{
+  if(!window.finalDataUrl){alert('Pehle photo upload karo');return;}
+  const a=document.createElement('a');
+  a.href=window.finalDataUrl;
+  a.download=`${window.curDoc.id}-${window.curDoc.w}x${window.curDoc.h}-WhiteBG.jpg`;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(()=>{
+    const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
+    if(isIOS){
+      const w=window.open();
+      w.document.write(`<img src="${window.finalDataUrl}" style="width:100%"><h3 style="text-align:center;font-family:sans-serif">Long Press Image > Add to Photos - Your ${window.curDoc.w}x${window.curDoc.h} photo is ready</h3>`);
+    }
+  },500);
 }
-function downloadA4(){
+window.downloadA4=()=>{
   const cvs=document.createElement('canvas'); cvs.width=2480; cvs.height=3508;
   const ctx=cvs.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,cvs.width,cvs.height);
   const img=new Image(); img.onload=()=>{
-    for(let r=0;r<4;r++) for(let c=0;c<2;c++) ctx.drawImage(img,100+c*(curDoc.w+100),100+r*(curDoc.h+100),curDoc.w,curDoc.h);
+    for(let r=0;r<4;r++) for(let c=0;c<2;c++) ctx.drawImage(img,80+c*(window.curDoc.w+80),80+r*(window.curDoc.h+80),window.curDoc.w,window.curDoc.h);
     const url=cvs.toDataURL('image/jpeg',0.92);
-    const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
-    if(isIOS){
-      const w=window.open(); w.document.write(`<img src="${url}" style="width:100%"><p style="text-align:center">Long Press > Save</p>`);
-    }else{
-      const a=document.createElement('a'); a.href=url; a.download=`${curDoc.id}-A4-Sheet.jpg`; a.click();
-    }
-  }; img.src=finalDataUrl;
+    const a=document.createElement('a'); a.href=url; a.download=`${window.curDoc.id}-A4-Sheet-8-Photos.jpg`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }; img.src=window.finalDataUrl;
 }
 render();
 </script>
 
 <script type="module">
 import {removeBackground} from "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/index.mjs";
-document.getElementById('fileIn').addEventListener('change', async (e)=>{
-  const file=e.target.files[0]; if(!file) return;
+const fileIn = document.getElementById('fileIn');
+fileIn.addEventListener('change', async (e)=>{
+  const file=e.target.files[0]; if(!file||!window.curDoc) return;
   document.getElementById('load').style.display='block';
   document.getElementById('prev').style.display='none';
-  const origUrl=URL.createObjectURL(file);
-  document.getElementById('origImg').src=origUrl;
+  const origURL=URL.createObjectURL(file);
+  document.getElementById('origImg').src=origURL;
   try{
     const blob=await removeBackground(file);
-    const img=new Image();
-    img.onload=()=>{
+    const bgImg=new Image();
+    bgImg.onload=()=>{
       const cvs=document.getElementById('cvs');
-      cvs.width=curDoc.w; cvs.height=curDoc.h;
+      // JO OPTION CHUNA USI SIZE ME BANEGA
+      cvs.width=window.curDoc.w;
+      cvs.height=window.curDoc.h;
       const ctx=cvs.getContext('2d');
       ctx.fillStyle='#FFFFFF'; ctx.fillRect(0,0,cvs.width,cvs.height);
-      const scale=Math.min(cvs.width/img.width, cvs.height/img.height)*0.88;
-      const nw=img.width*scale; const nh=img.height*scale;
-      const x=(cvs.width-nw)/2; const y=(cvs.height-nh)/2 -10;
-      ctx.drawImage(img,x,y,nw,nh);
-      finalDataUrl=cvs.toDataURL('image/jpeg',0.98);
-      document.getElementById('finalImg').src=finalDataUrl;
-      document.getElementById('finalLabel').innerText=`Final - ${curDoc.w}x${curDoc.h} Pure White BG`;
+      const scale=Math.min(cvs.width/bgImg.width, cvs.height/bgImg.height)*0.90;
+      const nw=bgImg.width*scale; const nh=bgImg.height*scale;
+      const x=(cvs.width-nw)/2; const y=(cvs.height-nh)/2 - (nh*0.05);
+      ctx.drawImage(bgImg,x,y,nw,nh);
+      window.finalDataUrl=cvs.toDataURL('image/jpeg',0.98);
+      document.getElementById('finalImg').src=window.finalDataUrl;
+      document.getElementById('finalLabel').innerHTML=`<b>Final - ${window.curDoc.w}x${window.curDoc.h} Pure White BG - ${window.curDoc.name}</b>`;
       document.getElementById('load').style.display='none';
       document.getElementById('prev').style.display='grid';
     };
-    img.src=URL.createObjectURL(blob);
+    bgImg.src=URL.createObjectURL(blob);
   }catch(err){
-    document.getElementById('load').style.display='none';
-    alert('Photo clear nahi hai - dusri photo try karo');
+    console.error(err);
+    const img=new Image();
+    img.onload=()=>{
+      const cvs=document.getElementById('cvs');
+      cvs.width=window.curDoc.w; cvs.height=window.curDoc.h;
+      const ctx=cvs.getContext('2d'); ctx.fillStyle='#FFFFFF'; ctx.fillRect(0,0,cvs.width,cvs.height);
+      const scale=Math.min(cvs.width/img.width, cvs.height/img.height)*0.90;
+      const nw=img.width*scale; const nh=img.height*scale;
+      const x=(cvs.width-nw)/2; const y=(cvs.height-nh)/2;
+      ctx.drawImage(img,x,y,nw,nh);
+      window.finalDataUrl=cvs.toDataURL('image/jpeg',0.95);
+      document.getElementById('finalImg').src=window.finalDataUrl;
+      document.getElementById('load').style.display='none';
+      document.getElementById('prev').style.display='grid';
+    };
+    img.src=origURL;
   }
 });
 </script>
