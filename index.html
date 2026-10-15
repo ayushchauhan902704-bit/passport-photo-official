@@ -3,267 +3,456 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff">
-<meta name="description" content="Create passport, visa, ID card and document size photos online. Choose a country, upload your photo and preview it instantly.">
-<title>All Document Size Photo - Passport, Visa & ID Photo Maker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6f7fb">
+<title>Passport Photo Official - Document Photo Maker</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f5f7fb;color:#182230;line-height:1.6}
-header{background:#fff;border-bottom:1px solid #e5e7eb;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{font-size:21px;font-weight:800;color:#155eef}
-nav a{margin-left:15px;text-decoration:none;color:#344054;font-size:14px}
-.hero{text-align:center;padding:55px 18px 35px;background:linear-gradient(135deg,#eaf2ff,#fff)}
-.tag{background:#dbeafe;color:#174ea6;padding:6px 13px;border-radius:25px;font-size:12px;font-weight:bold}
-h1{font-size:clamp(30px,5vw,46px);line-height:1.2;margin:20px auto 12px;max-width:760px}
-.hero p{color:#667085;max-width:650px;margin:auto}
-main{max-width:1000px;margin:auto;padding:25px 16px 55px}
-.panel{background:#fff;border:1px solid #e4e7ec;border-radius:18px;padding:24px;box-shadow:0 8px 30px #1018280a}
-.panel h2{font-size:23px;margin-bottom:5px}
-.sub{color:#667085;font-size:14px;margin-bottom:22px}
-.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
-.field{min-width:0}
-label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
-select,input[type=file]{width:100%;padding:12px;border:1px solid #d0d5dd;border-radius:9px;background:#fff;font-size:15px;color:#344054}
-input[type=file]{padding:10px}
-.note{font-size:12px;color:#667085;margin-top:6px}
-button{border:0;border-radius:9px;padding:12px 18px;font-weight:700;font-size:15px;cursor:pointer}
-.primary{background:#155eef;color:white}
-.secondary{background:#eef4ff;color:#1849a9}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.preview{margin-top:25px;border-top:1px solid #eaecf0;padding-top:20px}
-.preview h3{margin-bottom:12px}
-.photo-stage{min-height:210px;background:#f2f4f7;border:1px dashed #cbd5e1;border-radius:12px;display:flex;justify-content:center;align-items:center;padding:20px}
-.photo-stage img{display:none;max-width:100%;max-height:340px;object-fit:contain}
-.empty{text-align:center;color:#667085;font-size:14px}
-#status{font-size:14px;margin-top:12px;color:#344054}
-.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:25px}
-.feature{background:#fff;border:1px solid #e4e7ec;border-radius:14px;padding:18px}
-.feature b{display:block;margin:7px 0}
-.feature p{font-size:13px;color:#667085}
-section.info{margin-top:38px}
-.info h2{font-size:25px;margin-bottom:12px}
-.info p{color:#667085;margin-bottom:12px}
-footer{padding:25px 15px;background:#fff;border-top:1px solid #e5e7eb;text-align:center;color:#667085;font-size:13px}
-footer a{color:#155eef;margin:0 8px}
-@media(max-width:650px){
- header{padding:14px;align-items:flex-start;flex-direction:column}
- nav a{margin:0 12px 0 0}
- .hero{padding-top:40px}
- .panel{padding:17px}
- .fields{grid-template-columns:1fr}
- .features{grid-template-columns:1fr}
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
+body{background:#f6f7fb;color:#111}
+.head{max-width:1200px;margin:auto;padding:22px 16px;text-align:center}
+.head h1{font-size:clamp(24px,5vw,34px);font-weight:900;line-height:1.2}
+.head p{color:#666;margin-top:8px;font-size:14px}
+.searchWrap{max-width:700px;margin:20px auto 8px;background:#fff;border:2px solid #2563eb;border-radius:14px;display:flex;align-items:center;padding:0 14px}
+.searchWrap input{width:100%;min-width:0;border:0;outline:none;padding:15px 10px;font-size:16px;background:transparent}
+.tabs{max-width:1200px;margin:8px auto;display:flex;gap:8px;overflow-x:auto;padding:8px 15px}
+.tab{white-space:nowrap;background:#fff;border:1.5px solid #e5e7eb;padding:10px 16px;border-radius:99px;font-weight:700;font-size:13px;cursor:pointer}
+.tab.active{background:#111;color:#fff;border-color:#111}
+.grid{max-width:1200px;margin:16px auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 15px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.card{background:#fff;border:1.5px solid #e5e7eb;border-radius:16px;padding:15px;cursor:pointer;transition:.15s;overflow-wrap:anywhere}
+.card:hover{border-color:#2563eb;box-shadow:0 5px 18px #1111}
+.card:active{transform:scale(.98)}
+.card h3{font-size:14px;line-height:1.35}
+.card p{font-size:12px;color:#777;margin-top:5px}
+.size{margin-top:10px;background:#eef2ff;color:#1d4ed8;display:inline-block;padding:5px 8px;border-radius:6px;font-size:11px;font-weight:800}
+.page{max-width:900px;margin:15px auto;background:#fff;padding:18px;border-radius:18px;display:none}
+.page.active{display:block}
+.back{color:#2563eb;font-weight:800;cursor:pointer;display:inline-block;padding:5px 0}
+#selTitle{font-size:23px;line-height:1.3;margin-top:10px}
+#selInfo{font-size:13px;color:#666;margin-top:7px;line-height:1.5}
+.up{margin-top:18px;border:2px dashed #2563eb;background:#f8faff;padding:32px 15px;border-radius:14px;text-align:center;cursor:pointer}
+.up b{font-size:17px}
+.up small{display:block;margin-top:8px;color:#666;line-height:1.5}
+#fileIn{display:none}
+.load{margin-top:15px;background:#111;color:#fff;padding:14px;border-radius:10px;text-align:center;display:none;font-weight:700;line-height:1.5}
+.prev{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.prev img{display:block;width:100%;max-height:500px;object-fit:contain;border-radius:10px;border:1px solid #eee;background:#f5f5f5;margin-top:8px}
+.prev small{color:#555;font-weight:700}
+.btn{display:block;width:100%;margin-top:10px;background:#2563eb;color:#fff;text-align:center;padding:14px;border-radius:10px;font-weight:800;border:0;font-size:15px;cursor:pointer}
+.btn2{background:#111}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.note{font-size:12px;color:#666;line-height:1.5;margin-top:14px}
+.empty{grid-column:1/-1;text-align:center;color:#666;padding:35px 10px;background:#fff;border-radius:14px}
+@media(max-width:600px){.prev{grid-template-columns:1fr}.page{margin:10px;padding:14px}.prev img{max-height:400px}}
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">📸 All Document Size Photo</div>
-  <nav>
-    <a href="#maker">Photo Maker</a>
-    <a href="#documents">Documents</a>
-    <a href="#about">About</a>
-  </nav>
+
+<header class="head">
+<h1>Passport Photo Official</h1>
+<p>Choose a document size → Upload your photo → Change background → Download FREE</p>
+<div class="searchWrap">
+<span>🔍</span>
+<input id="search" oninput="render()" placeholder="Search USA Visa, Passport, Aadhaar...">
+</div>
 </header>
 
-<section class="hero">
-  <span class="tag">FREE ONLINE PHOTO MAKER</span>
-  <h1>Passport, Visa & Document Photos Made Simple</h1>
-  <p>Choose your country and document type, upload your photo, and preview it in a clean photo workspace.</p>
+<nav class="tabs">
+<button class="tab active" onclick="setCat('all',this)">All Documents</button>
+<button class="tab" onclick="setCat('passport',this)">Passports</button>
+<button class="tab" onclick="setCat('visa',this)">Visas</button>
+<button class="tab" onclick="setCat('id',this)">ID Cards</button>
+<button class="tab" onclick="setCat('job',this)">Govt Jobs & Exams</button>
+</nav>
+
+<main id="grid" class="grid"></main>
+
+<section id="tool" class="page">
+<span class="back" onclick="goHome()">← Back to documents</span>
+<h2 id="selTitle"></h2>
+<p id="selInfo"></p>
+
+<input type="file" id="fileIn" accept="image/jpeg,image/png,image/webp">
+<div class="up" id="uploadBox" onclick="document.getElementById('fileIn').click()">
+<b>📷 Tap to Upload Photo</b>
+<small>JPG, PNG or WebP · Maximum 10 MB<br>Use a clear, front-facing photo for best results.</small>
+</div>
+
+<div id="load" class="load">⏳ Removing background with AI...<br>Please keep this page open. First use may take longer.</div>
+
+<div id="prev" class="prev" style="display:none">
+<div>
+<small>Original Photo</small>
+<img id="origImg" alt="Original photo">
+</div>
+<div>
+<small id="finalLabel">Ready Photo</small>
+<img id="finalImg" alt="Processed photo">
+<button class="btn" id="downloadBtn" onclick="downloadHD()">Download Photo - JPG</button>
+<button class="btn btn2" id="a4Btn" onclick="downloadA4()">Download A4 Sheet - 8 Photos</button>
+</div>
+</div>
+
+<p class="note">Note: This tool creates the selected pixel dimensions and a white background. Official photo rules can also include face position, head size, lighting and other requirements. Check the relevant authority's instructions before submitting.</p>
 </section>
-
-<main>
-<section class="panel" id="maker">
-  <h2>Create Your Document Photo</h2>
-  <p class="sub">Choose your requirements and upload a clear photo.</p>
-
-  <div class="fields">
-    <div class="field">
-      <label for="country">Select country</label>
-      <select id="country">
-        <option value="IN">India</option>
-        <option value="US">United States</option>
-        <option value="GB">United Kingdom</option>
-        <option value="CA">Canada</option>
-        <option value="AU">Australia</option>
-        <option value="CN">China</option>
-        <option value="JP">Japan</option>
-        <option value="PK">Pakistan</option>
-        <option value="BD">Bangladesh</option>
-        <option value="NP">Nepal</option>
-        <option value="OTHER">Other country</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label for="document">Select document</label>
-      <select id="document">
-        <option value="passport">Passport photo</option>
-        <option value="visa">Visa photo</option>
-        <option value="id">ID card photo</option>
-        <option value="license">Driving licence photo</option>
-        <option value="general">General document photo</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label for="background">Background color</label>
-      <select id="background">
-        <option value="#ffffff">White</option>
-        <option value="#dbeafe">Light blue</option>
-        <option value="#e5e7eb">Light grey</option>
-      </select>
-      <p class="note">Select a color permitted by your document's official rules.</p>
-    </div>
-
-    <div class="field">
-      <label for="upload">Upload your photo</label>
-      <input type="file" id="upload" accept="image/jpeg,image/png,image/webp">
-      <p class="note">Use a clear, front-facing photograph.</p>
-    </div>
-  </div>
-
-  <div class="actions">
-    <button class="primary" id="previewBtn">Preview Photo</button>
-    <button class="secondary" id="resetBtn" type="button">Reset</button>
-  </div>
-
-  <div class="preview">
-    <h3>Photo Preview</h3>
-    <div class="photo-stage" id="stage">
-      <p class="empty" id="empty">Your photo preview will appear here.</p>
-      <img id="photo" alt="Uploaded photo preview">
-    </div>
-    <p id="status" aria-live="polite">No photo selected.</p>
-    <div class="actions">
-      <button class="primary" id="downloadBtn" disabled>Download Preview</button>
-    </div>
-    <p class="note">This initial version creates a visual preview, not a verified, document-compliant crop or background replacement. Official sizes and requirements must be checked before using a photo for an application.</p>
-  </div>
-</section>
-
-<section class="features" id="documents">
-  <div class="feature">
-    <div>🛂</div>
-    <b>Passport Photos</b>
-    <p>Prepare photos for passport applications.</p>
-  </div>
-  <div class="feature">
-    <div>✈️</div>
-    <b>Visa Photos</b>
-    <p>Choose a country and visa photo workflow.</p>
-  </div>
-  <div class="feature">
-    <div>🪪</div>
-    <b>ID & Licence Photos</b>
-    <p>Explore photo options for identity documents.</p>
-  </div>
-</section>
-
-<section class="info" id="about">
-  <h2>About All Document Size Photo</h2>
-  <p>Our goal is to make document photo preparation easier with a simple interface for choosing countries, document types, and photo backgrounds.</p>
-  <p>Photo dimensions, background rules, head positioning and other requirements can vary by document and issuing authority. Always verify the latest official instructions before submitting a photo.</p>
-</section>
-</main>
-
-<footer>
-  <p>© <span id="year"></span> All Document Size Photo</p>
-  <p style="margin-top:8px">
-    <a href="#about">About</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="contact.html">Contact</a>
-  </p>
-</footer>
 
 <script>
-const upload = document.getElementById('upload');
-const photo = document.getElementById('photo');
-const empty = document.getElementById('empty');
-const stage = document.getElementById('stage');
-const statusText = document.getElementById('status');
-const downloadBtn = document.getElementById('downloadBtn');
-let currentUrl = null;
+const DOCS=[
+{name:'USA Passport Photo - 2×2 Inch',desc:'United States passport photo',w:600,h:600,cat:'passport',id:'usa-passport'},
+{name:'India Passport Photo - 35×45 mm',desc:'India passport photo template',w:413,h:531,cat:'passport',id:'india-passport'},
+{name:'Canada Passport Photo - 50×70 mm',desc:'Canada passport photo template',w:500,h:700,cat:'passport',id:'canada-passport'},
+{name:'Australia Passport Photo - 35×45 mm',desc:'Australia passport template',w:413,h:531,cat:'passport',id:'australia-passport'},
+{name:'UK Passport Photo - 35×45 mm',desc:'United Kingdom passport template',w:413,h:531,cat:'passport',id:'uk-passport'},
+{name:'UAE Passport Photo - 35×45 mm',desc:'UAE passport template',w:413,h:531,cat:'passport',id:'uae-passport'},
+{name:'Singapore Passport Photo - 35×35 mm',desc:'Singapore photo template',w:400,h:400,cat:'passport',id:'singapore-passport'},
+{name:'China Passport Photo - 33×48 mm',desc:'China photo template',w:330,h:480,cat:'passport',id:'china-passport'},
+{name:'Japan Passport Photo - 45×45 mm',desc:'Japan photo template',w:450,h:450,cat:'passport',id:'japan-passport'},
+{name:'USA Visa Photo - 2×2 Inch',desc:'B1/B2, F1 and other visa photo template',w:600,h:600,cat:'visa',id:'usa-visa'},
+{name:'Canada Visa Photo - 50×70 mm',desc:'Visitor, student and work visa template',w:500,h:700,cat:'visa',id:'canada-visa'},
+{name:'UK Visa Photo - 35×45 mm',desc:'United Kingdom visa template',w:413,h:531,cat:'visa',id:'uk-visa'},
+{name:'UAE / Dubai Visa Photo - 35×45 mm',desc:'UAE visa photo template',w:413,h:531,cat:'visa',id:'uae-visa'},
+{name:'Schengen Visa Photo - 35×45 mm',desc:'Common Schengen photo template',w:413,h:531,cat:'visa',id:'schengen-visa'},
+{name:'India Visa Photo - 2×2 Inch',desc:'India visa photo template',w:600,h:600,cat:'visa',id:'india-visa'},
+{name:'China Visa Photo - 33×48 mm',desc:'China visa photo template',w:330,h:480,cat:'visa',id:'china-visa'},
+{name:'Japan Visa Photo - 45×45 mm',desc:'Japan visa photo template',w:450,h:450,cat:'visa',id:'japan-visa'},
+{name:'India Aadhaar Photo',desc:'Custom photo template for Aadhaar-related use',w:400,h:500,cat:'id',id:'aadhaar'},
+{name:'India PAN Card Photo',desc:'Photo template; verify application requirements',w:300,h:400,cat:'id',id:'pan-card'},
+{name:'India Voter ID Photo',desc:'Voter ID photo template',w:400,h:500,cat:'id',id:'voter-id'},
+{name:'Driving Licence Photo',desc:'Select template and verify local rules',w:400,h:500,cat:'id',id:'driving-licence'},
+{name:'USA Green Card Photo - 2×2 Inch',desc:'Green Card photo template',w:600,h:600,cat:'id',id:'green-card'},
+{name:'Canada PR Card Photo',desc:'Permanent resident photo template',w:500,h:700,cat:'id',id:'canada-pr'},
+{name:'UK Residence Permit Photo',desc:'Check current UK document instructions',w:413,h:531,cat:'id',id:'uk-residence'},
+{name:'OCI Card Photo - 2×2 Inch',desc:'OCI photo template',w:600,h:600,cat:'id',id:'oci-card'},
+{name:'SSC Exam Photo - 35×45 mm',desc:'SSC application photo template',w:413,h:531,cat:'job',id:'ssc-exam'},
+{name:'UPSC Exam Photo - 35×45 mm',desc:'UPSC application photo template',w:413,h:531,cat:'job',id:'upsc-exam'},
+{name:'Railway RRB Exam Photo',desc:'Verify current recruitment notification',w:413,h:531,cat:'job',id:'rrb-exam'},
+{name:'Police Recruitment Photo',desc:'Check your state recruitment rules',w:413,h:531,cat:'job',id:'police-exam'},
+{name:'Indian Army Recruitment Photo',desc:'Check the current recruitment notice',w:413,h:531,cat:'job',id:'army-exam'},
+{name:'NEET / JEE Exam Photo',desc:'Check the current exam information bulletin',w:413,h:531,cat:'job',id:'neet-jee'}
+];
 
-document.getElementById('year').textContent = new Date().getFullYear();
+let curCat='all';
+let curDoc=null;
+let finalDataUrl='';
+let processing=false;
+let jobNumber=0;
 
-function updateBackground(){
-  stage.style.background = document.getElementById('background').value;
+const $=id=>document.getElementById(id);
+
+function setCat(category,el){
+ curCat=category;
+ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+ el.classList.add('active');
+ render();
 }
-document.getElementById('background').addEventListener('change', updateBackground);
-updateBackground();
 
-document.getElementById('previewBtn').addEventListener('click', () => {
-  const file = upload.files[0];
-  if (!file) {
-    statusText.textContent = 'Please upload a photo first.';
-    return;
+function render(){
+ const q=$('search').value.trim().toLowerCase();
+ const grid=$('grid');
+ grid.innerHTML='';
+
+ const results=DOCS.filter(d=>{
+  const categoryOK=curCat==='all'||d.cat===curCat;
+  const text=(d.name+' '+d.desc+' '+d.id).toLowerCase();
+  return categoryOK&&text.includes(q);
+ });
+
+ if(!results.length){
+  grid.innerHTML='<div class="empty">No matching document found. Try another search.</div>';
+  return;
+ }
+
+ results.forEach(d=>{
+  const card=document.createElement('article');
+  card.className='card';
+
+  const h=document.createElement('h3');
+  h.textContent=d.name;
+
+  const p=document.createElement('p');
+  p.textContent=d.desc;
+
+  const size=document.createElement('span');
+  size.className='size';
+  size.textContent=d.w+' × '+d.h+' px';
+
+  card.append(h,p,size);
+  card.onclick=()=>selectDoc(d);
+  grid.appendChild(card);
+ });
+}
+
+function selectDoc(d){
+ curDoc=d;
+ finalDataUrl='';
+ $('fileIn').value='';
+ $('prev').style.display='none';
+ $('load').style.display='none';
+ $('selTitle').textContent=d.name;
+ $('selInfo').textContent='Output dimensions: '+d.w+' × '+d.h+' pixels';
+ $('grid').style.display='none';
+ document.querySelector('.tabs').style.display='none';
+ document.querySelector('.head').style.display='none';
+ $('tool').classList.add('active');
+ window.scrollTo(0,0);
+}
+
+function goHome(){
+ jobNumber++;
+ processing=false;
+ curDoc=null;
+ finalDataUrl='';
+ $('fileIn').value='';
+ $('grid').style.display='grid';
+ document.querySelector('.tabs').style.display='flex';
+ document.querySelector('.head').style.display='block';
+ $('tool').classList.remove('active');
+ $('prev').style.display='none';
+ $('load').style.display='none';
+ window.scrollTo(0,0);
+}
+
+function setLoading(show,message){
+ $('load').style.display=show?'block':'none';
+ if(message) $('load').innerHTML=message;
+ $('uploadBox').style.opacity=show?'.6':'1';
+ $('uploadBox').style.pointerEvents=show?'none':'auto';
+}
+
+function showError(message){
+ alert(message);
+}
+
+function makeFinalPhoto(img,job){
+ if(job!==jobNumber||!curDoc)return;
+
+ const canvas=document.createElement('canvas');
+ canvas.width=curDoc.w;
+ canvas.height=curDoc.h;
+ const ctx=canvas.getContext('2d');
+
+ if(!ctx){
+  setLoading(false);
+  showError('Your browser could not prepare the photo. Please try another browser.');
+  return;
+ }
+
+ // Fill white first, then place the transparent-background subject.
+ ctx.fillStyle='#FFFFFF';
+ ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ // Fit the subject inside the selected output size without stretching.
+ const padding=.08;
+ const maxW=canvas.width*(1-padding);
+ const maxH=canvas.height*(1-padding);
+ const scale=Math.min(maxW/img.width,maxH/img.height);
+ const dw=img.width*scale;
+ const dh=img.height*scale;
+ const dx=(canvas.width-dw)/2;
+ const dy=(canvas.height-dh)/2;
+
+ ctx.drawImage(img,dx,dy,dw,dh);
+
+ try{
+  finalDataUrl=canvas.toDataURL('image/jpeg',.96);
+ }catch(err){
+  setLoading(false);
+  showError('Could not create the JPG. Please try another photo.');
+  return;
+ }
+
+ $('finalImg').src=finalDataUrl;
+ $('finalLabel').textContent='Final Photo · '+curDoc.w+' × '+curDoc.h+' px';
+ $('prev').style.display='grid';
+ setLoading(false);
+}
+
+function downloadURL(url,filename){
+ const a=document.createElement('a');
+ a.href=url;
+ a.download=filename;
+ a.style.display='none';
+ document.body.appendChild(a);
+ a.click();
+ a.remove();
+}
+
+function downloadHD(){
+ if(!finalDataUrl||!curDoc){
+  showError('Please upload and process a photo first.');
+  return;
+ }
+
+ const filename=curDoc.id+'-'+curDoc.w+'x'+curDoc.h+'.jpg';
+
+ // On iPhone, open the image so the user can use Share / Save Image.
+ const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||
+  (navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+
+ if(isIOS){
+  const w=window.open('','_blank');
+  if(!w){
+   showError('Allow pop-ups for this page, or use the image preview to save the photo.');
+   return;
   }
-  if (!file.type.startsWith('image/')) {
-    statusText.textContent = 'Please choose a valid image file.';
-    return;
-  }
-  if (file.size > 10 * 1024 * 1024) {
-    statusText.textContent = 'Please choose an image smaller than 10 MB.';
-    return;
+  w.document.title=filename;
+  w.document.body.style.cssText='margin:0;background:#eee;text-align:center;font-family:system-ui';
+  const img=w.document.createElement('img');
+  img.src=finalDataUrl;
+  img.style.cssText='max-width:100%;height:auto;display:block;margin:auto';
+  w.document.body.appendChild(img);
+  const msg=w.document.createElement('p');
+  msg.textContent='Tap Share, then Save Image. You can also press and hold the photo.';
+  msg.style.cssText='padding:12px;font-size:14px';
+  w.document.body.appendChild(msg);
+ }else{
+  downloadURL(finalDataUrl,filename);
+ }
+}
+
+function downloadA4(){
+ if(!finalDataUrl||!curDoc){
+  showError('Please upload and process a photo first.');
+  return;
+ }
+
+ const sheet=document.createElement('canvas');
+ sheet.width=2480;
+ sheet.height=3508;
+ const ctx=sheet.getContext('2d');
+
+ if(!ctx){
+  showError('Could not create the A4 sheet.');
+  return;
+ }
+
+ ctx.fillStyle='#FFFFFF';
+ ctx.fillRect(0,0,sheet.width,sheet.height);
+
+ const img=new Image();
+ img.onload=()=>{
+  const cols=2,rows=4,margin=90;
+  const cellW=(sheet.width-margin*2)/cols;
+  const cellH=(sheet.height-margin*2)/rows;
+
+  for(let r=0;r<rows;r++){
+   for(let c=0;c<cols;c++){
+    const scale=Math.min((cellW-30)/img.width,(cellH-30)/img.height);
+    const w=img.width*scale;
+    const h=img.height*scale;
+    const x=margin+c*cellW+(cellW-w)/2;
+    const y=margin+r*cellH+(cellH-h)/2;
+    ctx.drawImage(img,x,y,w,h);
+   }
   }
 
-  if (currentUrl) URL.revokeObjectURL(currentUrl);
-  currentUrl = URL.createObjectURL(file);
-  photo.onload = () => {
-    photo.style.display = 'block';
-    empty.style.display = 'none';
-    statusText.textContent =
-      'Preview ready. Country: ' +
-      document.getElementById('country').selectedOptions[0].text +
-      '. Document: ' +
-      document.getElementById('document').selectedOptions[0].text +
-      '. This is not yet an official-size crop.';
-    downloadBtn.disabled = false;
+  const url=sheet.toDataURL('image/jpeg',.95);
+  const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||
+   (navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+
+  if(isIOS){
+   const w=window.open('','_blank');
+   if(!w){
+    showError('Allow pop-ups to open the A4 sheet.');
+    return;
+   }
+   w.document.title='A4 Photo Sheet';
+   w.document.body.style.cssText='margin:0;text-align:center;background:#eee;font-family:system-ui';
+   const out=w.document.createElement('img');
+   out.src=url;
+   out.style.cssText='display:block;width:100%;height:auto';
+   w.document.body.appendChild(out);
+   const msg=w.document.createElement('p');
+   msg.textContent='Tap Share, then Save Image.';
+   msg.style.padding='12px';
+   w.document.body.appendChild(msg);
+  }else{
+   downloadURL(url,curDoc.id+'-A4-8-photos.jpg');
+  }
+ };
+ img.onerror=()=>showError('Could not prepare the A4 sheet. Please try again.');
+ img.src=finalDataUrl;
+}
+
+render();
+</script>
+
+<script type="module">
+import { removeBackground } from
+'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/index.mjs';
+
+const fileInput=document.getElementById('fileIn');
+
+fileInput.addEventListener('change',async event=>{
+ const file=event.target.files&&event.target.files[0];
+ if(!file)return;
+
+ if(!window.curDoc && !document.getElementById('selTitle').textContent){
+  alert('Please select a document size first.');
+  fileInput.value='';
+  return;
+ }
+
+ if(!file.type.startsWith('image/')){
+  alert('Please select a JPG, PNG or WebP image.');
+  fileInput.value='';
+  return;
+ }
+
+ if(file.size>10*1024*1024){
+  alert('Image is too large. Please choose a photo under 10 MB.');
+  fileInput.value='';
+  return;
+ }
+
+ if(window.processing)return;
+
+ window.processing=true;
+ const currentJob=++window.jobNumber;
+
+ document.getElementById('prev').style.display='none';
+ document.getElementById('load').style.display='block';
+ document.getElementById('load').textContent='⏳ AI is removing the original background. Please wait...';
+
+ const originalURL=URL.createObjectURL(file);
+ document.getElementById('origImg').src=originalURL;
+
+ try{
+  // The returned image has a transparent background.
+  const transparentBlob=await removeBackground(file);
+
+  if(currentJob!==window.jobNumber)return;
+
+  const transparentURL=URL.createObjectURL(transparentBlob);
+  const img=new Image();
+
+  img.onload=()=>{
+   try{
+    if(currentJob!==window.jobNumber)return;
+
+    // White background and exact selected dimensions are applied in this step.
+    window.makeFinalPhoto(img,currentJob);
+   }finally{
+    URL.revokeObjectURL(transparentURL);
+    window.processing=false;
+   }
   };
-  photo.onerror = () => {
-    statusText.textContent = 'Could not open this image. Please try another.';
+
+  img.onerror=()=>{
+   URL.revokeObjectURL(transparentURL);
+   window.processing=false;
+   document.getElementById('load').style.display='none';
+   alert('Could not load the processed photo. Please try again.');
   };
-  photo.src = currentUrl;
-  updateBackground();
-});
 
-downloadBtn.addEventListener('click', () => {
-  if (!photo.naturalWidth) return;
-  const canvas = document.createElement('canvas');
-  canvas.width = photo.naturalWidth;
-  canvas.height = photo.naturalHeight;
-  const ctx = canvas.getContext('2d');
-  ctx.fillStyle = document.getElementById('background').value;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(photo, 0, 0);
-  canvas.toBlob(blob => {
-    if (!blob) {
-      statusText.textContent = 'Could not export the image.';
-      return;
-    }
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'document-photo-preview.jpg';
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  }, 'image/jpeg', 0.95);
-});
+  img.src=transparentURL;
 
-document.getElementById('resetBtn').addEventListener('click', () => {
-  upload.value = '';
-  photo.removeAttribute('src');
-  photo.style.display = 'none';
-  empty.style.display = 'block';
-  downloadBtn.disabled = true;
-  statusText.textContent = 'No photo selected.';
-  if (currentUrl) URL.revokeObjectURL(currentUrl);
-  currentUrl = null;
-  document.getElementById('country').value = 'IN';
-  document.getElementById('document').value = 'passport';
-  document.getElementById('background').value = '#ffffff';
-  updateBackground();
+ }catch(error){
+  window.processing=false;
+  document.getElementById('load').style.display='none';
+  console.error('Background removal failed:',error);
+  alert('AI background removal failed. Check your internet connection and try a clear photo again. If it keeps failing, the AI model may not be loading on this device.');
+ }
 });
 </script>
 </body>
