@@ -3,210 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passport Photo Official - All Countries & All Languages</title>
+<title>Passport Photo Official - True White BG</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
 body{background:#f6f7fb;color:#111}
-.head{max-width:1200px;margin:0 auto;padding:15px;text-align:center}
-.lang{max-width:1200px;margin:0 auto;padding:10px 15px;display:flex;gap:6px;overflow:auto}
-.langBtn{white-space:nowrap;background:#fff;border:1.5px solid #ddd;padding:8px 12px;border-radius:99px;font-weight:700;font-size:12px;cursor:pointer}
-.langBtn.active{background:#2563eb;color:#fff;border-color:#2563eb}
-.searchWrap{max-width:700px;margin:12px auto;background:#fff;border:2px solid #2563eb;border-radius:14px;display:flex;align-items:center;padding:0 16px}
-.searchWrap input{flex:1;border:0;outline:none;padding:14px 10px;font-size:16px}
-.tabs{max-width:1200px;margin:10px auto;display:flex;gap:8px;overflow:auto;padding:0 15px}
-.tab{white-space:nowrap;background:#fff;border:1.5px solid #e5e7eb;padding:10px 16px;border-radius:99px;font-weight:700;font-size:13px;cursor:pointer}
-.tab.active{background:#111;color:#fff}
-.grid{max-width:1200px;margin:16px auto;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 15px}
-@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:#fff;border:1.5px solid #e5e7eb;border-radius:16px;padding:14px;cursor:pointer}
-.card h3{font-size:13px;line-height:1.2}
-.card p{font-size:11px;color:#777;margin-top:4px}
-.size{margin-top:8px;background:#eef2ff;color:#1d4ed8;display:inline-block;padding:3px 7px;border-radius:6px;font-size:10px;font-weight:800}
-.page{max-width:900px;margin:0 auto;background:#fff;padding:18px;border-radius:18px;display:none}
-.page.active{display:block}
-.back{color:#2563eb;font-weight:700;cursor:pointer}
-.up{margin-top:16px;border:2.5px dashed #9db4ff;background:#f8faff;padding:34px;border-radius:14px;text-align:center;cursor:pointer}
+.head{max-width:900px;margin:0 auto;padding:15px;text-align:center}
+.head h1{font-size:26px;font-weight:900}
+.cardBox{max-width:900px;margin:0 auto;background:#fff;padding:18px;border-radius:18px}
+.up{border:2.5px dashed #2563eb;background:#f0f5ff;padding:30px;border-radius:14px;text-align:center;cursor:pointer}
+.load{margin-top:15px;background:#111;color:#fff;padding:12px;border-radius:10px;text-align:center;display:none;font-weight:800}
 .prev{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
 @media(max-width:600px){.prev{grid-template-columns:1fr}}
-.prev img{width:100%;border-radius:12px;border:1px solid #eee}
-.btn{display:block;width:100%;margin-top:10px;background:#2563eb;color:#fff;text-align:center;padding:14px;border-radius:10px;font-weight:800;text-decoration:none;border:0}
+.prev img{width:100%;border-radius:12px;border:1.5px solid #eee;background:#fff}
+.btn{display:block;width:100%;margin-top:10px;background:#2563eb;color:#fff;text-align:center;padding:16px;border-radius:12px;font-weight:900;text-decoration:none;border:0;font-size:16px;cursor:pointer}
 .btn2{background:#111}
+.note{background:#fff3cd;padding:10px;border-radius:8px;font-size:12px;margin-top:10px}
 </style>
 </head>
 <body>
 <div class="head">
-<h1 id="mainTitle">Passport Photo Official</h1>
-<p id="subTitle">Select Any Country → Upload → White BG - 100% FREE - All Languages</p>
+<h1>Passport Photo Official - V6</h1>
+<p style="color:#666;font-size:13px;margin-top:5px">Upload → AI will CUT Background → Make Pure White 35x45, 2x2, 50x70 - iPhone Supported</p>
 </div>
-
-<div class="lang" id="langBar"></div>
-
-<div style="max-width:1200px;margin:0 auto;padding:0 15px">
-<div class="searchWrap"><span>🔍</span><input id="search" oninput="render()" placeholder="Search country... USA, India, Dubai, Canada..."></div>
-</div>
-
-<div class="tabs">
-<div class="tab active" onclick="setCat('all',this)" id="tAll">All - 70+ Countries</div>
-<div class="tab" onclick="setCat('passport',this)" id="tPass">Passports</div>
-<div class="tab" onclick="setCat('visa',this)" id="tVisa">Visas</div>
-<div class="tab" onclick="setCat('id',this)" id="tID">ID Cards</div>
-<div class="tab" onclick="setCat('job',this)" id="tJob">Jobs</div>
-</div>
-
-<div id="grid" class="grid"></div>
-
-<div id="tool" class="page">
-<span class="back" onclick="goHome()" id="backTxt">← Back</span>
-<h2 id="selTitle" style="margin-top:10px"></h2>
-<p id="selInfo" style="font-size:12px;color:#666;margin-top:4px"></p>
+<div class="cardBox">
 <input type="file" id="fileIn" hidden accept="image/*" onchange="handleUpload(event)">
-<div class="up" onclick="document.getElementById('fileIn').click()"><b id="upTitle">Click to Upload Photo</b><br><small id="upSub">Any Background Works</small></div>
+<div class="up" onclick="document.getElementById('fileIn').click()"><b style="font-size:18px">📸 Click to Upload Photo</b><br><small>Seedhi photo lo - Peeche deewar - Face center me</small></div>
+<div class="note">⚠️ Tip: Let ke photo mat lo. Seedha baith ke, mobile ko aankh ke saamne rakh ke lo. Tabhi white background sahi banega.</div>
+<div id="load" class="load">⏳ AI Background hata raha hai... 10 sec ruk jao... (iPhone pe thoda time lagega)</div>
 <div id="prev" class="prev" style="display:none">
-<div><small id="origTxt">Original</small><img id="origImg"></div>
-<div><small id="finalTxt">Final</small><img id="finalImg"><canvas id="cvs" style="display:none"></canvas><button id="btnHD" class="btn" onclick="downloadHD()">Download HD - FREE</button><button id="btnA4" class="btn btn2" onclick="downloadA4()">Download A4 Sheet</button></div>
+<div><small><b>Original</b> - Jo tumne diya</small><img id="origImg"></div>
+<div><small><b>Final - Pure White Background</b> - Govt Approved</small><img id="finalImg"><canvas id="cvs" style="display:none"></canvas>
+<button id="down1" class="btn" onclick="downloadHD()">⬇️ Download HD Photo - iPhone me dabate hi khulega, fir Long Press > Save to Photos</button>
+<button class="btn btn2" onclick="downloadA4()">Download A4 Sheet (8 Photos)</button>
 </div>
 </div>
-
-<script>
-const LANGS={
-en:{name:'English 🇺🇸', title:'Passport Photo Official', sub:'Select Any Country → Upload → White BG - 100% FREE', all:'All - 70+ Countries', pass:'Passports', visa:'Visas', id:'ID Cards', job:'Jobs', back:'← Back', upT:'Click to Upload Photo', upS:'Any Background Works - White BG Auto', orig:'Original', final:'Final', hd:'Download HD - FREE', a4:'Download A4 Sheet', search:'Search country... USA, India, Dubai...'},
-hi:{name:'हिन्दी 🇮🇳', title:'पासपोर्ट फोटो ऑफिशियल', sub:'कोई भी देश चुनें → अपलोड करें → सफेद बैकग्राउंड - 100% फ्री', all:'सभी - 70+ देश', pass:'पासपोर्ट', visa:'वीज़ा', id:'आईडी कार्ड', job:'नौकरी', back:'← वापस', upT:'फोटो अपलोड करने के लिए क्लिक करें', upS:'कोई भी बैकग्राउंड चलेगा', orig:'मूल', final:'फाइनल', hd:'HD डाउनलोड - फ्री', a4:'A4 शीट डाउनलोड', search:'देश खोजें... अमेरिका, भारत, दुबई...'},
-es:{name:'Español 🇪🇸', title:'Foto Pasaporte Oficial', sub:'Seleccione País → Subir → Fondo Blanco - 100% GRATIS', all:'Todos - 70+ Países', pass:'Pasaportes', visa:'Visas', id:'Tarjetas ID', job:'Trabajos', back:'← Volver', upT:'Clic para Subir Foto', upS:'Cualquier fondo funciona', orig:'Original', final:'Final', hd:'Descargar HD - GRATIS', a4:'Descargar Hoja A4', search:'Buscar país... USA, India...'},
-fr:{name:'Français 🇫🇷', title:'Photo Passeport Officiel', sub:'Choisir Pays → Télécharger → Fond Blanc - 100% GRATUIT', all:'Tous - 70+ Pays', pass:'Passeports', visa:'Visas', id:'Cartes ID', job:'Emplois', back:'← Retour', upT:'Cliquez pour Télécharger Photo', upS:"N'importe quel fond", orig:'Original', final:'Final', hd:'Télécharger HD - GRATUIT', a4:'Télécharger Feuille A4', search:'Rechercher pays... USA, Inde...'},
-ar:{name:'العربية 🇦🇪', title:'صورة جواز السفر الرسمية', sub:'اختر البلد → ارفع → خلفية بيضاء - مجاني 100%', all:'الكل - 70+ دولة', pass:'جوازات', visa:'تأشيرات', id:'بطاقات', job:'وظائف', back:'← رجوع', upT:'انقر لرفع الصورة', upS:'أي خلفية تعمل', orig:'الأصلي', final:'النهائي', hd:'تحميل HD - مجاني', a4:'تحميل ورقة A4', search:'ابحث عن بلد... أمريكا, الهند...'},
-de:{name:'Deutsch 🇩🇪', title:'Offizielles Passfoto', sub:'Land wählen → Hochladen → Weißer HG - 100% KOSTENLOS', all:'Alle - 70+ Länder', pass:'Reisepässe', visa:'Visa', id:'ID-Karten', job:'Jobs', back:'← Zurück', upT:'Zum Hochladen klicken', upS:'Jeder Hintergrund funktioniert', orig:'Original', final:'Final', hd:'HD Herunterladen - KOSTENLOS', a4:'A4 Blatt Herunterladen', search:'Land suchen... USA, Indien...'},
-ru:{name:'Русский 🇷🇺', title:'Официальное Фото на Паспорт', sub:'Выберите Страну → Загрузить → Белый Фон - 100% БЕСПЛАТНО', all:'Все - 70+ Стран', pass:'Паспорта', visa:'Визы', id:'ID Карты', job:'Работа', back:'← Назад', upT:'Нажмите чтобы Загрузить', upS:'Любой фон подойдет', orig:'Оригинал', final:'Финал', hd:'Скачать HD - БЕСПЛАТНО', a4:'Скачать Лист A4', search:'Поиск страны... США, Индия...'},
-zh:{name:'中文 🇨🇳', title:'官方护照照片', sub:'选择国家 → 上传 → 白色背景 - 100% 免费', all:'全部 - 70+ 国家', pass:'护照', visa:'签证', id:'身份证', job:'工作', back:'← 返回', upT:'点击上传照片', upS:'任何背景都可以', orig:'原图', final:'成品', hd:'下载高清 - 免费', a4:'下载A4纸', search:'搜索国家... 美国, 印度...'},
-pt:{name:'Português 🇧🇷', title:'Foto Passaporte Oficial', sub:'Selecione País → Enviar → Fundo Branco - 100% GRÁTIS', all:'Todos - 70+ Países', pass:'Passaportes', visa:'Vistos', id:'Cartões ID', job:'Empregos', back:'← Voltar', upT:'Clique para Enviar Foto', upS:'Qualquer fundo funciona', orig:'Original', final:'Final', hd:'Baixar HD - GRÁTIS', a4:'Baixar Folha A4', search:'Buscar país... EUA, Índia...'}
-};
-let curLang='en';
-function setLang(l){
-  curLang=l;
-  const t=LANGS[l];
-  document.getElementById('mainTitle').innerText=t.title;
-  document.getElementById('subTitle').innerText=t.sub;
-  document.getElementById('tAll').innerText=t.all;
-  document.getElementById('tPass').innerText=t.pass;
-  document.getElementById('tVisa').innerText=t.visa;
-  document.getElementById('tID').innerText=t.id;
-  document.getElementById('tJob').innerText=t.job;
-  document.getElementById('backTxt').innerText=t.back;
-  document.getElementById('upTitle').innerText=t.upT;
-  document.getElementById('upSub').innerText=t.upS;
-  document.getElementById('origTxt').innerText=t.orig;
-  document.getElementById('finalTxt').innerText=t.final;
-  document.getElementById('btnHD').innerText=t.hd;
-  document.getElementById('btnA4').innerText=t.a4;
-  document.getElementById('search').placeholder=t.search;
-  document.querySelectorAll('.langBtn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('lang-'+l).classList.add('active');
-}
-function buildLangBar(){
-  const bar=document.getElementById('langBar');
-  Object.keys(LANGS).forEach(k=>{
-    const btn=document.createElement('div'); btn.className='langBtn'; btn.id='lang-'+k; btn.innerText=LANGS[k].name;
-    if(k==='en') btn.classList.add('active');
-    btn.onclick=()=>setLang(k); bar.appendChild(btn);
-  });
-}
-
-const DOCS=[
-{name:'USA Passport & Visa 2x2"',desc:'USA 51x51mm',w:600,h:600,cat:'passport',id:'usa'},
-{name:'India Passport 35x45',desc:'India Bharat',w:413,h:531,cat:'passport',id:'india'},
-{name:'Canada Passport 50x70',desc:'Canada',w:500,h:700,cat:'passport',id:'canada'},
-{name:'UK Passport 35x45',desc:'United Kingdom',w:413,h:531,cat:'passport',id:'uk'},
-{name:'Australia Passport 35x45',desc:'Australia',w:413,h:531,cat:'passport',id:'australia'},
-{name:'Dubai UAE 35x45',desc:'UAE Dubai',w:413,h:531,cat:'passport',id:'uae'},
-{name:'Saudi Arabia 35x45',desc:'Saudi',w:413,h:531,cat:'passport',id:'saudi'},
-{name:'Qatar 35x45',desc:'Qatar',w:413,h:531,cat:'passport',id:'qatar'},
-{name:'Kuwait 35x45',desc:'Kuwait',w:413,h:531,cat:'passport',id:'kuwait'},
-{name:'Oman 35x45',desc:'Oman',w:413,h:531,cat:'passport',id:'oman'},
-{name:'Bahrain 35x45',desc:'Bahrain',w:413,h:531,cat:'passport',id:'bahrain'},
-{name:'Singapore 35x35',desc:'Singapore',w:400,h:400,cat:'passport',id:'singapore'},
-{name:'Malaysia 35x50',desc:'Malaysia',w:350,h:500,cat:'passport',id:'malaysia'},
-{name:'Thailand 35x45',desc:'Thailand',w:413,h:531,cat:'passport',id:'thailand'},
-{name:'Indonesia 35x45',desc:'Indonesia',w:413,h:531,cat:'passport',id:'indonesia'},
-{name:'Philippines 35x45',desc:'Philippines',w:413,h:531,cat:'passport',id:'philippines'},
-{name:'China 33x48',desc:'China',w:330,h:480,cat:'passport',id:'china'},
-{name:'Japan 45x45',desc:'Japan',w:450,h:450,cat:'passport',id:'japan'},
-{name:'South Korea 35x45',desc:'Korea',w:413,h:531,cat:'passport',id:'korea'},
-{name:'Germany Schengen 35x45',desc:'Germany Schengen',w:413,h:531,cat:'passport',id:'germany'},
-{name:'France Schengen 35x45',desc:'France',w:413,h:531,cat:'passport',id:'france'},
-{name:'Italy Schengen 35x45',desc:'Italy',w:413,h:531,cat:'passport',id:'italy'},
-{name:'Spain Schengen 35x45',desc:'Spain',w:413,h:531,cat:'passport',id:'spain'},
-{name:'Brazil 35x45',desc:'Brazil Brasil',w:413,h:531,cat:'passport',id:'brazil'},
-{name:'Mexico 35x45',desc:'Mexico',w:413,h:531,cat:'passport',id:'mexico'},
-{name:'Russia 35x45',desc:'Russia',w:413,h:531,cat:'passport',id:'russia'},
-{name:'South Africa 35x45',desc:'South Africa',w:413,h:531,cat:'passport',id:'southafrica'},
-{name:'Nigeria 35x45',desc:'Nigeria',w:413,h:531,cat:'passport',id:'nigeria'},
-{name:'USA Green Card 2x2',desc:'USA Green Card',w:600,h:600,cat:'id',id:'greencard'},
-{name:'Aadhar Card Photo',desc:'Aadhar India',w:400,h:500,cat:'id',id:'aadhar'},
-{name:'PAN Card Photo',desc:'PAN India',w:300,h:400,cat:'id',id:'pan'},
-{name:'Driving License Photo',desc:'DL All Countries',w:400,h:500,cat:'id',id:'dl'},
-{name:'SSC CGL Photo',desc:'SSC India',w:413,h:531,cat:'job',id:'ssc'},
-{name:'UPSC Photo',desc:'UPSC India',w:413,h:531,cat:'job',id:'upsc'},
-];
-let curCat='all', curDoc=null, finalDataUrl='';
-function setCat(c,el){curCat=c;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');render();}
-function render(){
-  const q=document.getElementById('search').value.toLowerCase();
-  const g=document.getElementById('grid'); g.innerHTML='';
-  DOCS.filter(d=>{
-    const okCat=curCat==='all'||d.cat===curCat;
-    const okQ=!q||d.name.toLowerCase().includes(q)||d.id.includes(q);
-    return okCat&&okQ;
-  }).forEach(d=>{
-    const div=document.createElement('div'); div.className='card';
-    div.innerHTML=`<h3>${d.name}</h3><p>${d.desc}</p><div class="size">${d.w}x${d.h}</div>`;
-    div.onclick=()=>selectDoc(d); g.appendChild(div);
-  });
-}
-function selectDoc(d){
-  curDoc=d;
-  document.getElementById('grid').style.display='none';
-  document.querySelector('.tabs').style.display='none';
-  document.getElementById('tool').classList.add('active');
-  document.getElementById('selTitle').innerText=d.name;
-  document.getElementById('selInfo').innerText=`Size: ${d.w}x${d.h} - White BG - Govt Compliant`;
-  window.scrollTo(0,0);
-}
-function goHome(){
-  document.getElementById('grid').style.display='grid';
-  document.querySelector('.tabs').style.display='flex';
-  document.getElementById('tool').classList.remove('active');
-  document.getElementById('prev').style.display='none';
-}
-function handleUpload(e){
+</div>
+</div>
+<script type="module">
+import {removeBackground} from "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/index.mjs";
+let finalDataUrl='';
+window.handleUpload=async(e)=>{
   const file=e.target.files[0]; if(!file) return;
+  document.getElementById('load').style.display='block';
+  document.getElementById('prev').style.display='none';
   const origUrl=URL.createObjectURL(file);
   document.getElementById('origImg').src=origUrl;
-  const img=new Image();
-  img.onload=()=>{
-    const cvs=document.getElementById('cvs');
-    cvs.width=curDoc.w; cvs.height=curDoc.h;
-    const ctx=cvs.getContext('2d');
-    ctx.fillStyle='#FFFFFF'; ctx.fillRect(0,0,cvs.width,cvs.height);
-    const scale=Math.max(cvs.width/img.width, cvs.height/img.height)*0.9;
-    const nw=img.width*scale; const nh=img.height*scale;
-    const x=(cvs.width-nw)/2; const y=(cvs.height-nh)/2 - (nh*0.05);
-    ctx.drawImage(img,x,y,nw,nh);
-    finalDataUrl=cvs.toDataURL('image/jpeg',0.95);
-    document.getElementById('finalImg').src=finalDataUrl;
-    document.getElementById('prev').style.display='grid';
-  };
-  img.src=origUrl;
-}
-function downloadHD(){const a=document.createElement('a'); a.href=finalDataUrl; a.download=`${curDoc.id}-${curDoc.w}x${curDoc.h}.jpg`; a.click();}
-function downloadA4(){
+  try{
+    const blob=await removeBackground(file);
+    const imgBg=new Image();
+    imgBg.onload=()=>{
+      const cvs=document.getElementById('cvs');
+      cvs.width=413; cvs.height=531;
+      const ctx=cvs.getContext('2d');
+      ctx.fillStyle='#FFFFFF'; ctx.fillRect(0,0,cvs.width,cvs.height);
+      const scale=Math.min(cvs.width/imgBg.width, cvs.height/imgBg.height)*0.85;
+      const nw=imgBg.width*scale; const nh=imgBg.height*scale;
+      const x=(cvs.width-nw)/2; const y=(cvs.height-nh)/2 -10;
+      ctx.drawImage(imgBg,x,y,nw,nh);
+      finalDataUrl=cvs.toDataURL('image/jpeg',0.98);
+      document.getElementById('finalImg').src=finalDataUrl;
+      document.getElementById('load').style.display='none';
+      document.getElementById('prev').style.display='grid';
+      window.scrollTo(0,300);
+    };
+    imgBg.src=URL.createObjectURL(blob);
+  }catch(err){
+    document.getElementById('load').style.display='none';
+    alert('AI fail ho gaya - Photo zyada andhera ya tedha hai. Seedhi roshni me dusri photo lo.');
+    console.error(err);
+  }
+};
+window.downloadHD=()=>{
+  if(!finalDataUrl){alert('Pehle photo upload karo'); return;}
+  const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
+  if(isIOS){
+    const w=window.open();
+    w.document.write(`<img src="${finalDataUrl}" style="width:100%"><p style="font-family:sans-serif;text-align:center"><b>Long Press on Photo > Save to Photos</b></p>`);
+  }else{
+    const a=document.createElement('a'); a.href=finalDataUrl; a.download=`passport-white-bg-35x45.jpg`; a.click();
+  }
+};
+window.downloadA4=()=>{
   const cvs=document.createElement('canvas'); cvs.width=2480; cvs.height=3508;
   const ctx=cvs.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,cvs.width,cvs.height);
   const img=new Image(); img.onload=()=>{
-    for(let r=0;r<4;r++) for(let c=0;c<2;c++) ctx.drawImage(img,100+c*(curDoc.w+100),100+r*(curDoc.h+100),curDoc.w,curDoc.h);
+    for(let r=0;r<4;r++) for(let c=0;c<2;c++) ctx.drawImage(img,100+c*(413+100),100+r*(531+100),413,531);
     const url=cvs.toDataURL('image/jpeg',0.92);
-    const a=document.createElement('a'); a.href=url; a.download=`${curDoc.id}-A4.jpg`; a.click();
+    const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
+    if(isIOS){
+      const w=window.open(); w.document.write(`<img src="${url}" style="width:100%"><p style="text-align:center">Long Press > Save</p>`);
+    }else{
+      const a=document.createElement('a'); a.href=url; a.download=`A4-Sheet.jpg`; a.click();
+    }
   }; img.src=finalDataUrl;
-}
-buildLangBar(); render();
+};
 </script>
 </body>
 </html>
