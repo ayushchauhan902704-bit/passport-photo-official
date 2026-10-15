@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passport Photo Official - World's No.1 AI Photo Maker | 200+ Documents - USA, UK, Canada, Aadhar, PAN, SSC</title>
-<meta name="description" content="Make ANY official photo in 5 sec - USA 2x2, Canada 50x70, UK 35x45, India Passport, Dubai Visa, Schengen, Aadhar, PAN, DL, Green Card, SSC, UPSC, OCI - Free White BG">
+<title>Passport Photo Official - World's No.1 AI Photo Maker</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
 body{background:#f6f7fb;color:#111}
 .head{max-width:1200px;margin:0 auto;padding:20px;text-align:center}
-.head h1{font-size:30px;font-weight:900;letter-spacing:-0.5px}
-.head p{color:#666;margin-top:6px}
+.head h1{font-size:30px;font-weight:900}
+.head p{color:#666;margin-top:6px;font-size:14px}
 .searchWrap{max-width:700px;margin:18px auto;background:#fff;border:2px solid #2563eb;border-radius:14px;display:flex;align-items:center;padding:0 16px}
 .searchWrap input{flex:1;border:0;outline:none;padding:16px 10px;font-size:16px}
 .tabs{max-width:1200px;margin:10px auto;display:flex;gap:8px;overflow:auto;padding:0 15px}
@@ -18,11 +17,10 @@ body{background:#f6f7fb;color:#111}
 .tab.active{background:#111;color:#fff;border-color:#111}
 .grid{max-width:1200px;margin:16px auto;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 15px}
 @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:#fff;border:1.5px solid #e5e7eb;border-radius:16px;padding:14px;cursor:pointer;transition:.2s}
-.card:hover{border-color:#2563eb;transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.07)}
-.card h3{font-size:14px;line-height:1.3}
+.card{background:#fff;border:1.5px solid #e5e7eb;border-radius:16px;padding:14px;cursor:pointer}
+.card h3{font-size:14px}
 .card p{font-size:11px;color:#777;margin-top:4px}
-.card .size{margin-top:8px;background:#eef2ff;color:#1d4ed8;display:inline-block;padding:3px 7px;border-radius:6px;font-size:10px;font-weight:800}
+.size{margin-top:8px;background:#eef2ff;color:#1d4ed8;display:inline-block;padding:3px 7px;border-radius:6px;font-size:10px;font-weight:800}
 .page{max-width:900px;margin:0 auto;background:#fff;padding:18px;border-radius:18px;display:none}
 .page.active{display:block}
 .back{color:#2563eb;font-weight:700;cursor:pointer}
@@ -33,15 +31,13 @@ body{background:#f6f7fb;color:#111}
 .btn{display:block;width:100%;margin-top:10px;background:#2563eb;color:#fff;text-align:center;padding:13px;border-radius:10px;font-weight:800;text-decoration:none}
 .btn2{background:#111}
 .load{margin-top:14px;font-weight:800;color:#2563eb;display:none}
-.foot{max-width:1200px;margin:30px auto;text-align:center;color:#aaa;font-size:11px;padding:0 15px;line-height:1.6}
 </style>
-<script type="importmap">{"imports":{"@imgly/background-removal":"https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/index.mjs"}}</script>
 </head>
 <body>
 <div class="head">
 <h1>Passport Photo Official</h1>
-<p>World's No.1 - Select Any Document → Upload → White BG in 5 Sec - 100% FREE & Govt Compliant</p>
-<div class="searchWrap"><span>🔍</span><input id="search" oninput="render()" placeholder="Search any document... e.g. Green Card, SSC, Driving License, Schengen"></div>
+<p>World's No.1 - Select Any Document → Upload → White BG in 5 Sec - 100% FREE</p>
+<div class="searchWrap"><span>🔍</span><input id="search" oninput="render()" placeholder="Search: Green Card, SSC, DL, Schengen..."></div>
 </div>
 <div class="tabs">
 <div class="tab active" onclick="setCat('all',this)">All - 60+ Docs</div>
@@ -51,138 +47,109 @@ body{background:#f6f7fb;color:#111}
 <div class="tab" onclick="setCat('job',this)">Jobs & Exams</div>
 </div>
 <div id="grid" class="grid"></div>
-
 <div id="tool" class="page">
-<span class="back" onclick="goHome()">← Back to Search</span>
+<span class="back" onclick="goHome()">← Back</span>
 <h2 id="selTitle" style="margin-top:10px"></h2>
-<p id="selDesc" style="color:#666;font-size:13px;margin-top:4px"></p>
 <input type="file" id="fileIn" hidden accept="image/*" onchange="handleUpload(event)">
-<div class="up" onclick="document.getElementById('fileIn').click()"><b style="font-size:16px">Click to Upload Photo</b><br><small>JPG / PNG - Clear Face - Max 10MB</small></div>
+<div class="up" onclick="document.getElementById('fileIn').click()"><b>Click to Upload Photo</b><br><small>JPG / PNG - Clear Face</small></div>
 <div id="load" class="load">AI White Background bana raha hai... 5 sec...</div>
 <div id="prev" class="prev" style="display:none">
 <div><small>Original</small><img id="origImg"></div>
-<div><small id="finalLabel">Final</small><img id="finalImg"><a id="down1" class="btn" download>Download HD Photo - FREE</a><a id="down2" class="btn btn2" download>Download A4 Sheet (8 Photos)</a></div>
+<div><small id="finalLabel">Final</small><img id="finalImg"><a id="down1" class="btn" download>Download HD - FREE</a><a id="down2" class="btn btn2" download>Download A4 Sheet</a></div>
 </div>
 </div>
 
-<div class="foot">SEO: usa passport 2x2, uk passport 35x45, canada 50x70, australia passport, dubai visa, schengen visa, saudi visa, china 33x48, japan visa, thailand visa, aadhar card photo, pan card photo, driving licence photo, voter id, ayushman card, e-shram, green card photo, uk brp, oci card, ssc cgl photo, upsc photo, rrb photo, iBPS photo, police photo, army photo, NDA photo, NEET photo - All Govt Compliant White Background</div>
-
-<script type="module">
-import {removeBackground} from "@imgly/background-removal";
+<script>
 const DOCS=[
 {cat:'passport',name:'USA Passport & Visa 2x2 Inch',desc:'USA 51x51mm 600x600',w:600,h:600,id:'usa-2x2'},
 {cat:'passport',name:'India Passport 35x45mm',desc:'India, UK, UAE, EU',w:413,h:531,id:'india-35x45'},
 {cat:'passport',name:'Canada Passport 50x70mm',desc:'Canada 50x70',w:500,h:700,id:'canada-50x70'},
-{cat:'passport',name:'Australia Passport 35x45mm',desc:'Australia',w:413,h:531,id:'australia-35x45'},
-{cat:'passport',name:'UK Passport 35x45mm',desc:'UK British',w:413,h:531,id:'uk-35x45'},
-{cat:'passport',name:'Dubai UAE 35x45mm',desc:'UAE Dubai',w:413,h:531,id:'uae-35x45'},
-{cat:'passport',name:'Saudi Arabia 35x45mm',desc:'Saudi Iqama',w:413,h:531,id:'saudi-35x45'},
-{cat:'passport',name:'Singapore 35x35mm',desc:'Singapore',w:400,h:400,id:'sg-35x35'},
-{cat:'passport',name:'China 33x48mm',desc:'China Visa & Passport',w:330,h:480,id:'china-33x48'},
-{cat:'passport',name:'Japan 35x45 & 45x45',desc:'Japan Visa',w:450,h:450,id:'japan-45x45'},
-{cat:'passport',name:'Malaysia 35x50mm',desc:'Malaysia',w:350,h:500,id:'malaysia-35x50'},
-{cat:'passport',name:'Thailand 35x45mm',desc:'Thailand Visa',w:413,h:531,id:'thailand-35x45'},
-{cat:'passport',name:'New Zealand 35x45mm',desc:'NZ Visa',w:413,h:531,id:'nz-35x45'},
-{cat:'passport',name:'Germany Schengen 35x45',desc:'Schengen Europe',w:413,h:531,id:'schengen-35x45'},
-{cat:'visa',name:'USA Visa 2x2',desc:'B1/B2, F1, H1B',w:600,h:600,id:'usa-visa-2x2'},
-{cat:'visa',name:'Canada Visitor Visa 50x70',desc:'Visitor, Student, Work',w:500,h:700,id:'canada-visa-50x70'},
-{cat:'visa',name:'UK Visa 35x45',desc:'UK Tourist, Student',w:413,h:531,id:'uk-visa-35x45'},
-{cat:'visa',name:'Dubai Visit Visa 35x45',desc:'Visit & Work',w:413,h:531,id:'dubai-visa-35x45'},
+{cat:'passport',name:'Australia Passport 35x45',desc:'Australia',w:413,h:531,id:'australia'},
+{cat:'passport',name:'UK Passport 35x45',desc:'UK British',w:413,h:531,id:'uk'},
+{cat:'passport',name:'Dubai UAE 35x45',desc:'UAE Dubai',w:413,h:531,id:'uae'},
+{cat:'passport',name:'Saudi Arabia 35x45',desc:'Saudi Iqama',w:413,h:531,id:'saudi'},
+{cat:'passport',name:'Singapore 35x35',desc:'Singapore',w:400,h:400,id:'sg'},
+{cat:'passport',name:'China 33x48mm',desc:'China Visa',w:330,h:480,id:'china'},
+{cat:'passport',name:'Japan 45x45',desc:'Japan Visa',w:450,h:450,id:'japan'},
+{cat:'passport',name:'Malaysia 35x50',desc:'Malaysia',w:350,h:500,id:'malaysia'},
+{cat:'passport',name:'Thailand 35x45',desc:'Thailand',w:413,h:531,id:'thailand'},
+{cat:'passport',name:'Germany Schengen 35x45',desc:'Schengen Europe',w:413,h:531,id:'schengen'},
+{cat:'visa',name:'USA Visa 2x2',desc:'B1/B2, F1, H1B',w:600,h:600,id:'usa-visa'},
+{cat:'visa',name:'Canada Visitor Visa 50x70',desc:'Visitor, Student, Work',w:500,h:700,id:'canada-visa'},
+{cat:'visa',name:'UK Visa 35x45',desc:'UK Tourist, Student',w:413,h:531,id:'uk-visa'},
+{cat:'visa',name:'Dubai Visit Visa 35x45',desc:'Visit & Work',w:413,h:531,id:'dubai-visa'},
 {cat:'visa',name:'Schengen Visa 35x45',desc:'Europe 27 Countries',w:413,h:531,id:'schengen-visa'},
 {cat:'visa',name:'Australia Visa 35x45',desc:'Australia Tourist',w:413,h:531,id:'aus-visa'},
-{cat:'visa',name:'Japan Visa 45x45',desc:'Japan Tourist',w:450,h:450,id:'japan-visa'},
-{cat:'visa',name:'China Visa 33x48',desc:'China Tourist, Business',w:330,h:480,id:'china-visa'},
-{cat:'visa',name:'Singapore Visa 35x45',desc:'SG Visa',w:413,h:531,id:'sg-visa'},
-{cat:'visa',name:'Malaysia Visa 35x50',desc:'MY Visa',w:350,h:500,id:'my-visa'},
-{cat:'id',name:'Aadhar Card Photo 35x45',desc:'Aadhar Card Size',w:400,h:500,id:'aadhar-35x45'},
-{cat:'id',name:'PAN Card Photo 25x35mm',desc:'PAN Card 25x35',w:300,h:400,id:'pan-25x35'},
-{cat:'id',name:'Driving License DL Photo',desc:'DL Size India & USA',w:400,h:500,id:'dl-photo'},
-{cat:'id',name:'Voter ID Card Photo',desc:'Voter ID Size',w:400,h:500,id:'voter-id'},
-{cat:'id',name:'Ayushman Bharat Card Photo',desc:'Ayushman Card',w:400,h:500,id:'ayushman'},
-{cat:'id',name:'E-Shram Card Photo',desc:'E-Shram Card',w:400,h:500,id:'eshram'},
-{cat:'id',name:'USA Green Card 2x2',desc:'Green Card Photo',w:600,h:600,id:'greencard-2x2'},
-{cat:'id',name:'USA Driving License',desc:'USA DL Photo',w:600,h:600,id:'usa-dl'},
+{cat:'id',name:'Aadhar Card Photo',desc:'Aadhar 35x45',w:400,h:500,id:'aadhar'},
+{cat:'id',name:'PAN Card Photo 25x35',desc:'PAN Card 25x35',w:300,h:400,id:'pan'},
+{cat:'id',name:'Driving License DL Photo',desc:'DL Size India & USA',w:400,h:500,id:'dl'},
+{cat:'id',name:'Voter ID Photo',desc:'Voter ID',w:400,h:500,id:'voter'},
+{cat:'id',name:'USA Green Card 2x2',desc:'Green Card Photo',w:600,h:600,id:'greencard'},
 {cat:'id',name:'Canada PR Card 50x70',desc:'Canada PR',w:500,h:700,id:'canada-pr'},
 {cat:'id',name:'UK BRP Card 35x45',desc:'UK BRP',w:413,h:531,id:'uk-brp'},
-{cat:'id',name:'OCI Card Photo 51x51',desc:'OCI Card USA, UK',w:600,h:600,id:'oci-2x2'},
-{cat:'id',name:'Ration Card Photo',desc:'Ration Card',w:400,h:500,id:'ration-card'},
-{cat:'job',name:'SSC CGL / CHSL Photo 35x45',desc:'SSC Exams',w:413,h:531,id:'ssc-35x45'},
-{cat:'job',name:'UPSC Photo 35x45',desc:'IAS, IPS Photo',w:413,h:531,id:'upsc-35x45'},
-{cat:'job',name:'Railway RRB Photo 35x45',desc:'RRB NTPC, Group D',w:413,h:531,id:'rrb-35x45'},
-{cat:'job',name:'Banking IBPS Photo 35x45',desc:'IBPS PO, Clerk',w:413,h:531,id:'ibps-35x45'},
-{cat:'job',name:'Police Constable Photo',desc:'UP, Delhi Police',w:413,h:531,id:'police-35x45'},
-{cat:'job',name:'Indian Army Photo 35x45',desc:'Army Agniveer',w:413,h:531,id:'army-35x45'},
-{cat:'job',name:'NDA Photo 35x45',desc:'NDA Exam',w:413,h:531,id:'nda-35x45'},
-{cat:'job',name:'NEET / JEE Photo 35x45',desc:'NEET, JEE Mains',w:413,h:531,id:'neet-35x45'},
-{cat:'job',name:'CUET University Admission',desc:'College Admission',w:400,h:500,id:'cuet-photo'},
-{cat:'job',name:'Print A4 Sheet - 8 Photos',desc:'1 Page me 8 Photo Print',w:413,h:531,id:'print-a4-8'},
-{cat:'job',name:'Resume CV Photo 35x45',desc:'Job Resume Photo',w:400,h:500,id:'resume-35x45'},
+{cat:'id',name:'OCI Card Photo 51x51',desc:'OCI Card',w:600,h:600,id:'oci'},
+{cat:'job',name:'SSC CGL / CHSL Photo 35x45',desc:'SSC Exams',w:413,h:531,id:'ssc'},
+{cat:'job',name:'UPSC Photo 35x45',desc:'IAS, IPS',w:413,h:531,id:'upsc'},
+{cat:'job',name:'Railway RRB Photo',desc:'RRB NTPC, Group D',w:413,h:531,id:'rrb'},
+{cat:'job',name:'Banking IBPS Photo',desc:'IBPS PO, Clerk',w:413,h:531,id:'ibps'},
+{cat:'job',name:'Police Photo',desc:'UP, Delhi Police',w:413,h:531,id:'police'},
+{cat:'job',name:'Indian Army Photo',desc:'Army Agniveer',w:413,h:531,id:'army'},
+{cat:'job',name:'NDA Photo',desc:'NDA Exam',w:413,h:531,id:'nda'},
+{cat:'job',name:'NEET / JEE Photo',desc:'NEET, JEE',w:413,h:531,id:'neet'},
+{cat:'job',name:'Print A4 Sheet - 8 Photos',desc:'1 Page me 8 Photo',w:413,h:531,id:'print-a4'},
 ];
 let curCat='all', curDoc=null;
-window.setCat=(c,el)=>{
-  curCat=c;
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  render();
-}
-window.render=()=>{
+function setCat(c,el){curCat=c;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');render();}
+function render(){
   const q=document.getElementById('search').value.toLowerCase();
-  const g=document.getElementById('grid');
-  g.innerHTML='';
+  const g=document.getElementById('grid'); g.innerHTML='';
   DOCS.filter(d=>{
     const okCat=curCat==='all'||d.cat===curCat;
-    const okQ=!q||(d.name.toLowerCase().includes(q)||d.desc.toLowerCase().includes(q)||d.id.includes(q));
+    const okQ=!q||d.name.toLowerCase().includes(q)||d.desc.toLowerCase().includes(q)||d.id.includes(q);
     return okCat&&okQ;
   }).forEach(d=>{
-    const div=document.createElement('div');
-    div.className='card';
+    const div=document.createElement('div'); div.className='card';
     div.innerHTML=`<h3>${d.name}</h3><p>${d.desc}</p><div class="size">${d.w}x${d.h} - White BG</div>`;
-    div.onclick=()=>selectDoc(d);
-    g.appendChild(div);
+    div.onclick=()=>selectDoc(d); g.appendChild(div);
   });
 }
-window.selectDoc=(d)=>{
+function selectDoc(d){
   curDoc=d;
   document.getElementById('grid').style.display='none';
   document.querySelector('.tabs').style.display='none';
-  document.querySelector('.searchWrap').style.display='none';
   document.getElementById('tool').classList.add('active');
   document.getElementById('selTitle').innerText=d.name;
-  document.getElementById('selDesc').innerText=`Size: ${d.w}x${d.h} | ${d.desc} | Govt Compliant White Background`;
   window.scrollTo(0,0);
 }
-window.goHome=()=>{
+function goHome(){
   document.getElementById('grid').style.display='grid';
   document.querySelector('.tabs').style.display='flex';
-  document.querySelector('.searchWrap').style.display='flex';
   document.getElementById('tool').classList.remove('active');
   document.getElementById('prev').style.display='none';
   document.getElementById('load').style.display='none';
 }
-window.handleUpload=async(e)=>{
+async function handleUpload(e){
   const file=e.target.files[0]; if(!file) return;
   document.getElementById('load').style.display='block';
   document.getElementById('prev').style.display='none';
   const origUrl=URL.createObjectURL(file);
   document.getElementById('origImg').src=origUrl;
   try{
+    const {removeBackground}=await import('https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/index.mjs');
     const blob=await removeBackground(file);
-    const canvas=document.createElement('canvas');
-    canvas.width=curDoc.w; canvas.height=curDoc.h;
-    const ctx=canvas.getContext('2d');
-    ctx.fillStyle='#FFFFFF'; ctx.fillRect(0,0,canvas.width,canvas.height);
+    const canvas=document.createElement('canvas'); canvas.width=curDoc.w; canvas.height=curDoc.h;
+    const ctx=canvas.getContext('2d'); ctx.fillStyle='#FFFFFF'; ctx.fillRect(0,0,canvas.width,canvas.height);
     const img=new Image(); img.src=URL.createObjectURL(blob);
     img.onload=()=>{
       ctx.drawImage(img,0,0,canvas.width,canvas.height);
       const finalUrl=canvas.toDataURL('image/jpeg',1.0);
       document.getElementById('finalImg').src=finalUrl;
-      document.getElementById('finalLabel').innerText=`Final - ${curDoc.name} ${curDoc.w}x${curDoc.h}`;
       document.getElementById('down1').href=finalUrl; document.getElementById('down1').download=`${curDoc.id}-HD.jpg`;
-      document.getElementById('down2').href=finalUrl; document.getElementById('down2').download=`${curDoc.id}-A4.jpg`;
+      document.getElementById('down2').href=finalUrl;
       document.getElementById('load').style.display='none';
       document.getElementById('prev').style.display='grid';
     }
-  }catch(err){ alert('Photo clear nahi hai, dusri try karo'); document.getElementById('load').style.display='none'; }
+  }catch(err){ alert('Error: Dusri clear photo try karo'); document.getElementById('load').style.display='none'; }
 }
 render();
 </script>
