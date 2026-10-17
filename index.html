@@ -1,112 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Document Photo Studio — Passport, Visa & ID Photo Maker</title>
-<meta name="description" content="Create passport, visa, ID and application photos online. Crop, resize, change solid backgrounds and download print-ready photos privately in your browser.">
-<meta name="robots" content="index,follow">
-<meta name="theme-color" content="#ffffff">
-<style>
-:root{--blue:#2457d6;--blue-dark:#1946b8;--ink:#172033;--muted:#657087;--line:#e3e8f0;--soft:#f6f8fc;--white:#fff;--green:#147d53;--red:#b42318}
-*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font:16px/1.55 system-ui,sans-serif}a{color:var(--blue)}button,input,select{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}.topbar{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800;font-size:18px}.logo{width:38px;height:38px;border-radius:12px;background:var(--blue);color:white;display:grid;place-items:center;font-size:20px}.navlinks{display:flex;gap:20px;align-items:center}.navlinks a{text-decoration:none;color:#39445b;font-size:14px;font-weight:650}.hero{padding:56px 0 34px;background:linear-gradient(180deg,#f8faff,white)}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}.eyebrow{display:inline-flex;border:1px solid #dbe5ff;background:#eef3ff;color:#244db5;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:750}.hero h1{font-size:clamp(34px,5vw,54px);line-height:1.08;letter-spacing:-.04em;margin:16px 0}.hero p{font-size:18px;color:var(--muted)}.btn{border:1px solid var(--line);border-radius:11px;padding:11px 16px;background:#fff;color:var(--ink);font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.panel{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff;box-shadow:0 5px 22px #152b4d08}.upload-zone{border:2px dashed #cbd6e8;background:#fafcff;border-radius:15px;padding:28px;text-align:center}.workspace{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:22px;align-items:start}.preview-wrap{background:#f5f7fb;border:1px solid var(--line);border-radius:14px;padding:18px;min-height:360px;display:grid;place-items:center;overflow:hidden}.preview-wrap canvas{max-width:100%;max-height:520px;width:auto;height:auto;background:#fff;box-shadow:0 4px 20px #12203a15}.empty{color:#7a8498;text-align:center}.control{display:flex;flex-direction:column;gap:6px;margin-bottom:15px}.control label{font-size:13px;font-weight:750;color:#364159}.control input[type=text],.control input[type=number],.control select{width:100%;min-height:42px;border:1px solid #d5dce8;border-radius:9px;padding:8px 10px;background:white}.control input[type=range]{width:100%;accent-color:var(--blue)}.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tools{display:flex;gap:8px;flex-wrap:wrap}.tools .btn{font-size:13px;padding:8px 11px}.swatches{display:flex;gap:9px;flex-wrap:wrap}.swatch{width:32px;height:32px;border-radius:50%;border:2px solid white;box-shadow:0 0 0 1px #cbd2df}.swatch[aria-pressed=true]{box-shadow:0 0 0 2px var(--blue)}.swatch[data-color="#FFFFFF"]{background:#fff}.swatch[data-color="#DDEEFF"]{background:#ddeeff}.swatch[data-color="#2876D2"]{background:#2876d2}.swatch[data-color="#D9DDE3"]{background:#d9dde3}.swatch[data-color="#D92D20"]{background:#d92d20}.notice{padding:12px 14px;border-radius:10px;background:#f5f8ff;border:1px solid #dfe8ff;color:#465472;font-size:13px}.status{font-size:13px;color:var(--muted);min-height:20px;margin-top:8px}.status.error{color:var(--red)}.status.good{color:var(--green)}.preset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.preset{border:1px solid var(--line);border-radius:13px;padding:14px;text-align:left;background:#fff}.preset.active{border-color:var(--blue);box-shadow:0 0 0 2px #2457d61a}.hidden{display:none!important}.small{font-size:12px;color:var(--muted)}.progress{height:5px;background:#e7ebf3;border-radius:9px;overflow:hidden;margin:10px 0}.progress span{display:block;height:100%;width:0;background:var(--blue);transition:width .2s}
-@media(max-width:800px){.hero-grid,.workspace{grid-template-columns:1fr}.preset-grid{grid-template-columns:repeat(2,1fr)}}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passport White BG - Final</title>
+<style>body{font-family:system-ui;text-align:center;background:#f5f5f7;padding:15px} .card{max-width:400px;margin:auto;background:#fff;padding:15px;border-radius:15px} button{width:100%;padding:15px;background:#000;color:#fff;border:0;border-radius:10px;font-weight:800;margin-top:10px} canvas{max-width:100%;border-radius:10px;border:1px solid #ddd;margin-top:10px}</style>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.2.0/dist/body-pix.min.js"></script>
 </head>
 <body>
-<header class="topbar"><div class="wrap nav"><a class="brand" href="#"><span class="logo">▣</span><span>Document Photo Studio</span></a><nav class="navlinks"><a href="#editor">Photo Editor</a><a href="#sizes">Photo Sizes</a></nav></div></header>
-<main>
-<section class="hero"><div class="wrap hero-grid"><div><span class="eyebrow">PRIVATE • FREE • IN YOUR BROWSER</span><h1>Create the Perfect Document Photo</h1><p>Prepare passport, visa, ID and application photos with adjustable dimensions, solid backgrounds and print-ready sheets — right on your device.</p><div class="hero-actions"><a class="btn primary" href="#editor">Upload Photo ↓</a></div></div><div class="hero-art" style="background:#f0f4ff;border:1px solid #e1e8ff;border-radius:24px;padding:24px;min-height:260px;display:grid;place-items:center"><div style="width:170px;height:210px;background:white;border:1px solid #dce2ec;border-radius:10px;display:grid;place-items:center">DOCUMENT PHOTO</div></div></div></section>
-<section class="section" id="editor"><div class="wrap"><h2>Photo editor</h2><p class="lead">Upload a photo, choose a size and adjust the framing.</p>
-<div class="panel">
-<div class="upload-zone" id="dropZone"><strong>Choose a photo to get started</strong><p>JPG, JPEG, PNG or WebP</p><div class="hero-actions" style="justify-content:center"><label class="btn primary" for="fileInput">Upload Photo</label></div><input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" class="hidden"></div>
-<div class="progress hidden" id="progress"><span id="progressBar"></span></div><div id="status" class="status"></div>
-<div class="workspace" style="margin-top:20px"><div><div class="preview-wrap"><div id="emptyState" class="empty"><div style="font-size:42px">▧</div><strong>Your preview appears here</strong></div><canvas id="preview" class="hidden"></canvas></div></div>
-<div>
-<div class="control"><label>Document photo size</label><select id="presetSelect"><option value="">Choose a size…</option></select><div id="presetInfo" class="small">Select a preset to see dimensions.</div></div>
-<div class="row2"><div class="control"><label>Unit</label><select id="unitSelect"><option value="mm">Millimetres (mm)</option><option value="cm">Centimetres (cm)</option><option value="in">Inches (in)</option><option value="px">Pixels (px)</option></select></div><div class="control"><label>DPI</label><select id="dpi"><option>300</option><option>600</option><option>150</option><option>96</option></select></div></div>
-<div class="row2"><div class="control"><label>Width</label><input id="customW" type="number" value="35"></div><div class="control"><label>Height</label><input id="customH" type="number" value="45"></div></div>
-<div class="control"><label>Background colour</label><div class="swatches" id="swatches"><button type="button" class="swatch" data-color="#FFFFFF" aria-pressed="true"></button><button type="button" class="swatch" data-color="#DDEEFF" aria-pressed="false"></button><button type="button" class="swatch" data-color="#2876D2" aria-pressed="false"></button><button type="button" class="swatch" data-color="#D9DDE3" aria-pressed="false"></button><button type="button" class="swatch" data-color="#D92D20" aria-pressed="false"></button><input type="color" id="customColor" value="#FFFFFF" style="width:40px;height:36px"></div></div>
-<div class="tools"><button type="button" class="btn primary" id="removeBgBtn" disabled>Remove Background (AI) - Pehle ye dabao</button><button type="button" class="btn" id="restoreBgBtn" disabled>Restore Original</button></div>
-<div class="control"><label>Zoom</label><input id="zoom" type="range" min="1" max="3" step=".01" value="1"></div>
-<div class="control"><label>Move horizontally</label><input id="moveX" type="range" min="-100" max="100" value="0"></div>
-<div class="control"><label>Move vertically</label><input id="moveY" type="range" min="-100" max="100" value="0"></div>
-<div class="tools"><button type="button" class="btn" id="rotateBtn">↻ Rotate 90°</button><button type="button" class="btn" id="resetBtn">Reset</button></div>
-<hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
-<div class="tools"><button type="button" class="btn primary" id="downloadBtn" disabled>Download Photo - Exact Size</button></div>
-<div id="exportInfo" class="small" style="margin-top:8px"></div>
-</div></div></div></div></section>
-<section class="section" id="sizes"><div class="wrap"><h2>Popular sizes</h2><div class="control"><input id="sizeSearch" type="text" placeholder="Search: US passport, India, 35x45..."></div><div id="presetGrid" class="preset-grid"></div></div></section>
-</main>
+<h2>Passport - White Background</h2>
+<div class="card">
+<input type="file" id="file" accept="image/*">
+<p id="status" style="color:#2457d6;font-weight:700"></p>
+<canvas id="cvs"></canvas>
+<button onclick="download()">Download White BG Photo</button>
+<div style="margin-top:10px">
+<button onclick="setSize(400,500)" style="background:#eef;color:#000">Aadhar 400x500</button>
+<button onclick="setSize(413,531)" style="background:#eef;color:#000">Passport 35x45</button>
+</div>
+</div>
 <script>
-"use strict";
-const presets=[
-{name:"India passport photo",country:"India",category:"Passport",w:35,h:45,unit:"mm"},
-{name:"India Aadhar 400x500",country:"India",category:"ID",w:400,h:500,unit:"px"},
-{name:"India PAN 300x400",country:"India",category:"ID",w:300,h:400,unit:"px"},
-{name:"US passport 2x2",country:"United States",category:"Passport",w:2,h:2,unit:"in"},
-{name:"UK passport 35x45",country:"United Kingdom",category:"Passport",w:35,h:45,unit:"mm"},
-{name:"Canada 50x70",country:"Canada",category:"Passport",w:50,h:70,unit:"mm"},
-{name:"SSC / UPSC",country:"India",category:"Exam",w:35,h:45,unit:"mm"},
-];
-const $=id=>document.getElementById(id);
-let img=null,cutoutImg=null,fileName="document-photo",bg="#FFFFFF",rotation=0,zoom=1,moveX=0,moveY=0,history=[],originalFile=null;
-const preview=$("preview"),ctx=preview.getContext("2d",{alpha:false});
-function unitToMm(v,u){return u==="mm"?v:u==="cm"?v*10:u==="in"?v*25.4:v*25.4/300}
-function getSize(){let u=$("unitSelect").value,w=Number($("customW").value),h=Number($("customH").value);if(!(w>0&&h>0))return null;if(u==="px"){return {w:Math.round(w),h:Math.round(h),pixel:true,mmW:w*25.4/Number($("dpi").value),mmH:h*25.4/Number($("dpi").value)}}let mmW=unitToMm(w,u),mmH=unitToMm(h,u),dpi=Number($("dpi").value);return {w:Math.max(1,Math.round(mmW/25.4*dpi)),h:Math.max(1,Math.round(mmH/25.4*dpi)),pixel:false,mmW,mmH}}
-function setStatus(msg,type=""){$("status").textContent=msg;$("status").className="status "+type}
-function progress(on){$("progress").classList.toggle("hidden",!on);$("progressBar").style.width=on?"35%":"0%"}
-function setPreset(p){$("unitSelect").value=p.unit;$("customW").value=p.w;$("customH").value=p.h;$("presetInfo").textContent=`${p.w} × ${p.h} ${p.unit}`;render();updateExportInfo()}
-function fillPresets(){presets.forEach((p,i)=>{let o=document.createElement("option");o.value=String(i);o.textContent=`${p.name} — ${p.w} × ${p.h} ${p.unit}`;$("presetSelect").append(o)});renderPresetGrid()}
-function renderPresetGrid(){const q=$("sizeSearch").value.toLowerCase();const grid=$("presetGrid");grid.innerHTML="";presets.filter(p=>(p.name+" "+p.country).toLowerCase().includes(q)).forEach(p=>{const b=document.createElement("button");b.type="button";b.className="preset";b.innerHTML=`<strong>${p.name}</strong><small>${p.w} × ${p.h} ${p.unit}</small>`;b.addEventListener("click",()=>{const i=presets.indexOf(p);$("presetSelect").value=String(i);setPreset(p);$("editor").scrollIntoView({behavior:"smooth"})});grid.append(b)})}
-function loadFile(file){if(!file)return;progress(true);setStatus("Loading photo…");originalFile=file;cutoutImg=null;$("removeBgBtn").disabled=false;$("restoreBgBtn").disabled=true;const url=URL.createObjectURL(file),im=new Image();im.onload=()=>{URL.revokeObjectURL(url);img=im;fileName=(file.name||"document-photo").replace(/\.[^.]+$/,"");rotation=0;zoom=1;moveX=0;moveY=0;$("zoom").value=1;$("moveX").value=0;$("moveY").value=0;$("emptyState").classList.add("hidden");preview.classList.remove("hidden");$("downloadBtn").disabled=false;render();progress(false);setStatus("Photo loaded. Ab 'Remove Background' button dabao background white karne ke liye.","good");updateExportInfo()};im.onerror=()=>{progress(false);setStatus("Image open nahi hua","error")};im.src=url}
-function drawToCanvas(c){const s=getSize();if(!s)throw new Error("Size galat hai");const x=c.getContext("2d");x.fillStyle=bg;x.fillRect(0,0,s.w,s.h);if(img){const source=cutoutImg||img;x.save();x.translate(s.w/2,s.h/2);x.rotate(rotation*Math.PI/180);const iw=(rotation%180===0?source.naturalWidth:source.naturalHeight),ih=(rotation%180===0?source.naturalHeight:source.naturalWidth);const scale=Math.max(s.w/iw,s.h/ih)*zoom;const dw=iw*scale,dh=ih*scale;const dx=moveX/100*Math.max(0,dw-s.w),dy=moveY/100*Math.max(0,dh-s.h);x.drawImage(source,-dw/2-dx,-dh/2-dy,dw,dh);x.restore()}return s}
-function render(){if(!img)return;try{const s=getSize();if(!s)return;preview.width=s.w;preview.height=s.h;drawToCanvas(preview);updateExportInfo()}catch(e){setStatus(e.message,"error")}}
-function updateExportInfo(){const s=getSize();if(!s)return;$("exportInfo").textContent=`Output: ${s.w} × ${s.h} px · ${$("dpi").value} DPI · Background ${bg} - Yehi size download hoga`}
-async function downloadPhoto(){if(!img)return;try{progress(true);setStatus("Download tayar ho raha hai…");const c=document.createElement("canvas");const s=drawToCanvas(c);const blob=await new Promise(r=>c.toBlob(r,$("format")?$("format").value:"image/jpeg",0.95));const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`${fileName}-${s.w}x${s.h}.jpg`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);setStatus(`Download ho gaya ${s.w} x ${s.h} px`,"good");progress(false);}catch(e){progress(false);setStatus(e.message,"error")}}
-
-$("fileInput").addEventListener("change",e=>loadFile(e.target.files[0]));
-$("presetSelect").addEventListener("change",()=>{const p=presets[Number($("presetSelect").value)];if(p)setPreset(p)});
-["unitSelect","customW","customH","dpi"].forEach(id=>$(id).addEventListener("change",render));
-["zoom","moveX","moveY"].forEach(id=>$(id).addEventListener("input",()=>{zoom=Number($("zoom").value);moveX=Number($("moveX").value);moveY=Number($("moveY").value);render()}));
-$("rotateBtn").addEventListener("click",()=>{rotation=(rotation+90)%360;render()});
-$("resetBtn").addEventListener("click",()=>{rotation=0;zoom=1;moveX=0;moveY=0;bg="#FFFFFF";$("zoom").value=1;$("moveX").value=0;$("moveY").value=0;$("customColor").value=bg;document.querySelectorAll(".swatch").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.color===bg)));render()});
-$("swatches").addEventListener("click",e=>{const b=e.target.closest(".swatch");if(!b)return;bg=b.dataset.color;document.querySelectorAll(".swatch").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));$("customColor").value=bg;render()});
-$("customColor").addEventListener("input",()=>{bg=$("customColor").value;document.querySelectorAll(".swatch").forEach(x=>x.setAttribute("aria-pressed","false"));render()});
-
-// *** YAHI FIX HAI - Background removal ***
-async function removeOriginalBackground(){
- if(!originalFile||!img)return;
- const button=$("removeBgBtn");button.disabled=true;progress(true);$("progressBar").style.width="15%";
- setStatus("AI model download ho raha hai... pehli baar 20-30 sec lagega, WiFi pe rakho...");
- try{
-   const mod=await import("https://esm.sh/@imgly/background-removal@1.4.1");
-   $("progressBar").style.width="50%";
-   setStatus("Background hata raha hu... phone pe thoda time lagega, wait karo...");
-   const result=await mod.removeBackground(originalFile,{
-     publicPath: "https://staticimgly.com/@imgly/background-removal-data/1.4.1/dist/",
-     output:{format:"image/png",quality:1}
-   });
-   const url=URL.createObjectURL(result),im=new Image();
-   await new Promise((resolve,reject)=>{im.onload=resolve;im.onerror=()=>reject(new Error("AI result load nahi hua"));im.src=url});
-   cutoutImg=im;
-   bg="#FFFFFF";
-   $("customColor").value="#FFFFFF";
-   document.querySelectorAll(".swatch").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.color==="#FFFFFF")));
-   $("restoreBgBtn").disabled=false;
-   render();
-   $("progressBar").style.width="100%";
-   setStatus("Ho gaya! Background ekdum white ho gaya. Ab size bhi exact banega.","good");
- }catch(e){
-   console.error(e);
-   setStatus("Fail: "+(e.message||e)+". Chrome browser me kholo aur WiFi pe try karo.","error");
- }finally{progress(false);button.disabled=false;}
+let img=null, w=400, h=500, net=null, finalUrl=null;
+const cvs=document.getElementById('cvs'), ctx=cvs.getContext('2d');
+async function loadNet(){
+  document.getElementById('status').innerText='AI load ho raha hai... 5 sec';
+  net=await bodyPix.load({architecture:'MobileNetV1',outputStride:16,multiplier:0.75});
+  document.getElementById('status').innerText='Ready - photo daalo';
 }
-$("removeBgBtn").addEventListener("click",removeOriginalBackground);
-$("restoreBgBtn").addEventListener("click",()=>{cutoutImg=null;$("restoreBgBtn").disabled=true;render();setStatus("Original restore ho gaya","good")});
-$("downloadBtn").addEventListener("click",downloadPhoto);
-$("sizeSearch").addEventListener("input",renderPresetGrid);
-fillPresets();
+loadNet();
+function setSize(ww,hh){w=ww;h=hh; if(img) draw();}
+document.getElementById('file').onchange=async e=>{
+  const file=e.target.files[0]; const url=URL.createObjectURL(file);
+  img=new Image(); img.onload=async()=>{await draw();}; img.src=url;
+}
+async function draw(){
+  if(!net || !img) return;
+  document.getElementById('status').innerText='Background white kar raha hu...';
+  const tmp=document.createElement('canvas'); tmp.width=img.width; tmp.height=img.height;
+  const tCtx=tmp.getContext('2d'); tCtx.drawImage(img,0,0);
+  const seg=await net.segmentPerson(tmp,{internalResolution:'medium',segmentationThreshold:0.7});
+  cvs.width=w; cvs.height=h;
+  ctx.fillStyle='#FFFFFF'; ctx.fillRect(0,0,w,h);
+  const imageData=tCtx.getImageData(0,0,img.width,img.height);
+  for(let i=0;i<seg.data.length;i++){ if(seg.data[i]==0) imageData.data[i*4+3]=0; }
+  tCtx.putImageData(imageData,0,0);
+  const scale=Math.min(w/img.width,h/img.height)*0.85;
+  const nw=img.width*scale, nh=img.height*scale;
+  const x=(w-nw)/2, y=(h-nh)/2;
+  ctx.drawImage(tmp,x,y,nw,nh);
+  finalUrl=cvs.toDataURL('image/jpeg',0.98);
+  document.getElementById('status').innerText='Ho gaya! White background ready';
+}
+function download(){
+  if(!finalUrl){alert('Pehle photo daal'); return;}
+  const a=document.createElement('a'); a.href=finalUrl; a.download='white-bg-'+w+'x'+h+'.jpg';
+  document.body.appendChild(a); a.click(); a.remove();
+}
 </script>
 </body>
 </html>
